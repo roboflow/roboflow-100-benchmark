@@ -1,0 +1,4 @@
+https://universe.roboflow.com/hand-gestures-recognition/hand-gestures-dataset/7
+https://universe.roboflow.com/leejinhee/data-kotgm/1 
+https://universe.roboflow.com/science-research/science-research-2022:-bone-fracture-detection/3
+https://universe.roboflow.com/mohamed-attia-e2mor/pill-detection-llp4r/5
