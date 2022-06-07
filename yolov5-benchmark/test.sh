@@ -18,14 +18,12 @@ do
     project=$(echo $str | cut -d' ' -f 2)
     version=$(echo $str | cut -d' ' -f 3)
 
-    echo $workspace $project $version
 
     ############ 1 DOWLOAD DATASET####################
     # set_up_dataset.py imports the dataset from the Universe and loads it on our machine
     python3 ../set_up_dataset.py --workspace $workspace --project $project --version $version --download yolov5
     loc=`cat ../loc.txt`  # file with the dataset path stored
     
-    echo "--loc ${loc}/data.yaml"
     ############### 2 RUN TRAINING################# yolov5/
     python3 train.py --img 416 --batch 16 --patience 40 --epochs 1 --name $workspace/$project/$version --data $loc/data.yaml --weights yolov5s.pt --cache # train the model on loaded dataset
  

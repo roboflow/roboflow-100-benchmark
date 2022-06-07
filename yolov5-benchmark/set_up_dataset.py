@@ -21,12 +21,11 @@ def main():
     version = args["version"]
     download = args["download"]
 
-    print("-- ", workspace, project, version, download)
 
     rf = Roboflow(api_key="ddkQGNIW95EfGbudHOeh")
     project = rf.workspace(workspace).project(project)
     dataset = project.version(int(version)).download(download)
-    print(" *** ", dataset.location)
+
     with open('../loc.txt', 'w') as f:
         f.write(dataset.location)
 
