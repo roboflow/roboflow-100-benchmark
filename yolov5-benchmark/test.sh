@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input="../url_list.txt"
+input="../../url_list.txt"
 cd yolov5/
 
 #check if yolov5 exists, if not 
