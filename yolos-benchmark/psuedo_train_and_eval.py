@@ -5,8 +5,28 @@
 #yolos-tiny
 
 #Register dataset as torchvision CocoDetection
-import torchvision
 import os
+import git
+import torch
+import argparse
+import torchvision
+import pytorch_lightning as pl
+from tqdm.notebook import tqdm
+from pytorch_lightning import Trainer
+from torch.utils.data import DataLoader
+from transformers import AutoFeatureExtractor
+from detr.datasets.coco_eval import CocoEvaluator
+from detr.datasets import get_coco_api_from_dataset
+from pytorch_lightning.callbacks import ModelCheckpoint
+from transformers import DetrConfig, AutoModelForObjectDetection
+
+
+
+# construct the argument parser and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-l", "--loc", required=True, help="location")
+args = vars(ap.parse_args())
+loc = args["loc"] 
 
 class CocoDetection(torchvision.datasets.CocoDetection):
     def __init__(self, img_folder, feature_extractor, train=True):
@@ -26,23 +46,8 @@ class CocoDetection(torchvision.datasets.CocoDetection):
         target = encoding["labels"][0] # remove batch dimension
 
         return pixel_values, target
-
-from transformers import AutoFeatureExtractor
-
-feature_extractor = AutoFeatureExtractor.from_pretrained("hustvl/yolos-small", size=512, max_size=864)
-
-train_dataset = CocoDetection(img_folder=(dataset.location + '/train'), feature_extractor=feature_extractor)
-val_dataset = CocoDetection(img_folder=(dataset.location + '/valid'), feature_extractor=feature_extractor, train=False)
-
-print("Number of training examples:", len(train_dataset))
-print("Number of validation examples:", len(val_dataset))
-
-
-
+    
 #Setup dataloader for training loop
-
-from torch.utils.data import DataLoader
-
 def collate_fn(batch):
   pixel_values = [item[0] for item in batch]
   encoding = feature_extractor.pad(pixel_values, return_tensors="pt")
@@ -52,19 +57,8 @@ def collate_fn(batch):
   batch['labels'] = labels
   return batch
 
-train_dataloader = DataLoader(train_dataset, collate_fn=collate_fn, batch_size=1, shuffle=True)
-val_dataloader = DataLoader(val_dataset, collate_fn=collate_fn, batch_size=1)
-batch = next(iter(train_dataloader))
-
-
-
 
 #set up training class 
-
-import pytorch_lightning as pl
-from transformers import DetrConfig, AutoModelForObjectDetection
-import torch
-
 #we wrap our model around pytorch lightning for training
 class Detr(pl.LightningModule):
 
@@ -125,17 +119,28 @@ class Detr(pl.LightningModule):
      def val_dataloader(self):
         return val_dataloader
 
-#
+
+
+feature_extractor = AutoFeatureExtractor.from_pretrained("hustvl/yolos-small", size=512, max_size=864)
+
+train_dataset = CocoDetection(img_folder=(loc + '/train'), feature_extractor=feature_extractor)
+val_dataset = CocoDetection(img_folder=(loc + '/valid'), feature_extractor=feature_extractor, train=False)
+
+print("Number of training examples:", len(train_dataset))
+print("Number of validation examples:", len(val_dataset))
+
+
+train_dataloader = DataLoader(train_dataset, collate_fn=collate_fn, batch_size=1, shuffle=True)
+val_dataloader = DataLoader(val_dataset, collate_fn=collate_fn, batch_size=1)
+batch = next(iter(train_dataloader))
+
+cats = train_dataset.coco.cats
+id2label = {k: v['name'] for k,v in cats.items()}
+
+
 #initialize the model
 model = Detr(lr=2.5e-5, weight_decay=1e-4)
 
-
-#from pytorch_lightning.loggers import WandbLogger
-from pytorch_lightning.callbacks import ModelCheckpoint
-
-# Name your wandb project and upload the final checkpoint to wandb, according to ModelCheckpoint
-# Click on the output wandb run name below to see your metrics updating live in wandb
-wandb_logger = WandbLogger(project='roboflow-yolos', log_model=True)
 
 # Keep track of the checkpoint with the lowest validation loss
 checkpoint_callback = ModelCheckpoint(monitor="validation/loss", mode="min")
@@ -144,22 +149,17 @@ checkpoint_callback = ModelCheckpoint(monitor="validation/loss", mode="min")
 #https://pytorch-lightning.readthedocs.io/en/stable/common/early_stopping.html
 
 
-
 #load best model
 #trainer.test(ckpt_path='best')
 
 
-
 ##training 
-from pytorch_lightning import Trainer
 
 #more epochs leads to a tighter fit of your model to your data.
 #we set epochs=10 here for an example of quick training
-trainer = Trainer(gpus=1, max_epochs=50, gradient_clip_val=0.1, accumulate_grad_batches=8, 
-                  log_every_n_steps=5, logger=wandb_logger, callbacks=[checkpoint_callback]) #  checkpoint_callback to log model to W&B at end of training and changed log_every_n_steps=5 to generate better charts
+trainer = Trainer(gpus=1, max_epochs=1, gradient_clip_val=0.1, accumulate_grad_batches=8, 
+                  log_every_n_steps=5, callbacks=[checkpoint_callback]) #  checkpoint_callback to log model to W&B at end of training and changed log_every_n_steps=5 to generate better charts
 trainer.fit(model)
-
-
 
 
 #Eval
@@ -168,17 +168,9 @@ trainer.fit(model)
 
 #torch.cuda.empty_cache()
 
-#!git clone https://github.com/facebookresearch/detr.git
-#%cd /content/detr
-
-
-from datasets import get_coco_api_from_dataset
 
 base_ds = get_coco_api_from_dataset(val_dataset) # this is actually just calling the coco attribute
 
-
-from datasets.coco_eval import CocoEvaluator
-from tqdm.notebook import tqdm
 
 iou_types = ['bbox']
 coco_evaluator = CocoEvaluator(base_ds, iou_types) # initialize evaluator with ground truths
@@ -187,6 +179,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model.to(device)
 model.eval()
+
+print("Got here w/o issues")
+wiuesovn
 
 print("Running evaluation...")
 
