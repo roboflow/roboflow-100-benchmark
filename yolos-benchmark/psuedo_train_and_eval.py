@@ -15,12 +15,9 @@ from tqdm.notebook import tqdm
 from pytorch_lightning import Trainer
 from torch.utils.data import DataLoader
 from transformers import AutoFeatureExtractor
-from detr.datasets.coco_eval import CocoEvaluator
-from detr.datasets import get_coco_api_from_dataset
+
 from pytorch_lightning.callbacks import ModelCheckpoint
 from transformers import DetrConfig, AutoModelForObjectDetection
-
-
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -60,7 +57,7 @@ def collate_fn(batch):
 
 #set up training class 
 #we wrap our model around pytorch lightning for training
-class Detr(pl.LightningModule):
+class YoloS(pl.LightningModule):
 
      def __init__(self, lr, weight_decay):
          super().__init__()
@@ -139,7 +136,7 @@ id2label = {k: v['name'] for k,v in cats.items()}
 
 
 #initialize the model
-model = Detr(lr=2.5e-5, weight_decay=1e-4)
+model = YoloS(lr=2.5e-5, weight_decay=1e-4)
 
 
 # Keep track of the checkpoint with the lowest validation loss
@@ -159,14 +156,23 @@ checkpoint_callback = ModelCheckpoint(monitor="validation/loss", mode="min")
 #we set epochs=10 here for an example of quick training
 trainer = Trainer(gpus=1, max_epochs=1, gradient_clip_val=0.1, accumulate_grad_batches=8, 
                   log_every_n_steps=5, callbacks=[checkpoint_callback]) #  checkpoint_callback to log model to W&B at end of training and changed log_every_n_steps=5 to generate better charts
-trainer.fit(model)
-
+# trainer.fit(model)
+#early stopping
+#load early stopping weights
 
 #Eval
 # Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.873
 
 
 #torch.cuda.empty_cache()
+
+
+import sys
+sys.path.append(os.getcwd() + "/detr")
+
+
+from datasets.coco_eval import CocoEvaluator
+from datasets import get_coco_api_from_dataset
 
 
 base_ds = get_coco_api_from_dataset(val_dataset) # this is actually just calling the coco attribute
