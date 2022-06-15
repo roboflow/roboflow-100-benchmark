@@ -2,3 +2,5 @@ yolov5-benchmark/attributes.txt
 yolov5-benchmark/loc.txt
 venv/
 yolov5-benchmark/yolov5/
+attributes.txt
+loc.txt
