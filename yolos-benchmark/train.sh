@@ -3,6 +3,7 @@
 #installs
 # pip install -q transformers
 # pip install -q pytorch-lightning
+# pip install jupyter
 
 
 input="../url_list.txt"
@@ -16,6 +17,7 @@ then
     git clone https://github.com/facebookresearch/detr.git
 fi
 
+cp train_and_eval.py detr/
 # cd detr/
 # pip install -qr requirements.txt
 
@@ -31,19 +33,18 @@ do
 
     echo " -- " $workspace $project $version
 
-   
-    #borrowing dataset download
+
     python3 ../set_up_dataset.py --workspace $workspace --project $project --version $version --download coco
     loc=`cat ../loc.txt`  # file with the dataset path stored
     echo $loc
-    pwd 
-    python3 psuedo_train_and_eval.py --loc $loc
-    
-    # echo "All the work has been completed. Removing the dataset folder..."
-    # rm -rf $loc
+ 
+    python3 detr/train_and_eval.py --loc $loc
 
-    # echo "Onto the next one!";
-    # echo " ";
+    echo "All the work has been completed. Removing the dataset folder..."
+    rm -rf $loc
+
+    echo "Onto the next one!";
+    echo " ";
 
 done < "$input"
 
