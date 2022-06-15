@@ -1,12 +1,20 @@
 #!/bin/bash
 
 input="../../url_list.txt"
-cd yolov5/
+
 
 #check if yolov5 exists, if not 
-#git clone yolov5
-#cd yolov5/
-#git reset --hard commit commithash
+### Check if a directory does not exist ###
+if [ ! -d "yolov5/" ] 
+then
+    echo "Cloning new repository." 
+    #git clone yolov5 repo
+    git clone https://github.com/ultralytics/yolov5.git
+fi
+
+cd yolov5/
+pip install -qr requirements.txt
+git reset --hard commit 2dd3db0050cd228e7a7ca3ff72ab7e3f34ea64d7
 
 while IFS= read -r line
 do
@@ -41,5 +49,5 @@ do
 
 done < "$input"
 
-echo "Done training all the datasets!"
+echo "Done training all the datasets with YOLOv5!"
 
