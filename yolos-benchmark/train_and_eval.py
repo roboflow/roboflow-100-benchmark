@@ -191,8 +191,10 @@ model = YoloS(lr=2.5e-5, weight_decay=1e-4)
 checkpoint_callback = ModelCheckpoint(monitor="validation/loss", mode="min")
 
 trainer = Trainer(gpus=1, max_epochs=1, gradient_clip_val=0.1, accumulate_grad_batches=8, 
-                log_every_n_steps=5, callbacks=[checkpoint_callback, EarlyStopping(monitor="train/loss", patience=40)]) #  checkpoint_callback to log model to W&B at end of training and changed log_every_n_steps=5 to generate better charts
+                log_every_n_steps=5, callbacks=[checkpoint_callback, EarlyStopping(monitor="validation/loss", patience=40)]) #  checkpoint_callback to log model to W&B at end of training and changed log_every_n_steps=5 to generate better charts
 trainer.fit(model)
+
+model = YoloS.load_from_checkpoint(checkpoint_path=checkpoint_callback.best_model_path)
 
 base_ds = get_coco_api_from_dataset(val_dataset) # this is actually just calling the coco attribute
 
@@ -202,7 +204,8 @@ coco_evaluator = CocoEvaluator(base_ds, iou_types) # initialize evaluator with g
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model.to(device)
-
+print("---", checkpoint_callback.best_model_path)
+# 
 evaluate_data(model, device, val_dataloader)
 
 
