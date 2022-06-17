@@ -3,6 +3,7 @@
 
 
 import os
+import sys
 import git
 import torch
 import argparse
@@ -162,7 +163,9 @@ def evaluate_data(model, device, val_dataloader):
 
   coco_evaluator.synchronize_between_processes()
   coco_evaluator.accumulate()
+  sys.stdout = open("yolos_res.txt", "w")
   coco_evaluator.summarize()
+  sys.stdout.close()
 
 
 
@@ -204,8 +207,7 @@ coco_evaluator = CocoEvaluator(base_ds, iou_types) # initialize evaluator with g
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model.to(device)
-print("---", checkpoint_callback.best_model_path)
-# 
+
 evaluate_data(model, device, val_dataloader)
 
 
