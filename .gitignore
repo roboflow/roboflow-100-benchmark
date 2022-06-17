@@ -5,3 +5,4 @@ yolov5-benchmark/yolov5/
 attributes.txt
 loc.txt
 yolos-benchmark/detr/
+mAP_results.txt
