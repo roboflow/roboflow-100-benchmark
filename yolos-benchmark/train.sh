@@ -17,6 +17,13 @@ then
     git clone https://github.com/facebookresearch/detr.git
 fi
 
+file="mAP_s.txt"
+
+if [ -f "$file" ] ; then
+    rm "$file"
+fi
+touch "$file"
+
 cp train_and_eval.py detr/
 # cd detr/
 # pip install -qr requirements.txt
@@ -39,6 +46,8 @@ do
     echo $loc
  
     python3 detr/train_and_eval.py --loc $loc
+
+    python3 parse_res.py --loc $loc
 
     echo "All the work has been completed. Removing the dataset folder..."
     rm -rf $loc
