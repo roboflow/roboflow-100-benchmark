@@ -61,33 +61,14 @@ if len(eval_lines) > 1:
     for lst in eval_lines:
         if lst['class'] == 'all':
             map_val = lst['map50']
-            print("mul -- ", map_val)
+           
 else:
     print("There's only one dict res")
     map_val = [res['map50'] for res in eval_lines][0]
 
-res = loc, ":", map_val
+res = loc, ": ", map_val
 
-# # if the file already exists
-# if path.exists("../mAP_v5.txt"):
-#     mAP_file = open("../mAP_v5.txt", "r")
-#     # get list of lines
-#     lines = mAP_file.readlines()
-#     mAP_file.close()
 
-#     mAP_file = open("../mAP_v5.txt", "w")
-#     for line in lines:
-#         if "YOLOv5" not in line.strip("\n"): # remove the old YOLOv5 line
-#             # keep all the other lines
-#             mAP_file.write(line)
-#     # replace the YOLOv5 line with the updated one
-#     mAP_file.write(''.join(res))
-
-#     mAP_file.close()
-
-# else:
-# if the file didn't exist already, create it and 
-# write new YOLOv5 line in it
 with open('../mAP_v5.txt', 'a') as f:
     f.write(''.join(res))
     f.write("\n")
