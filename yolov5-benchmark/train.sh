@@ -12,6 +12,14 @@ then
     git clone https://github.com/ultralytics/yolov5.git
 fi
 
+file="mAP_v5.txt"
+
+if [ -f "$file" ] ; then
+    rm "$file"
+fi
+touch "$file"
+
+
 cd yolov5/
 pip install -qr requirements.txt
 git reset --hard commit 2dd3db0050cd228e7a7ca3ff72ab7e3f34ea64d7
@@ -19,7 +27,7 @@ git reset --hard commit 2dd3db0050cd228e7a7ca3ff72ab7e3f34ea64d7
 while IFS= read -r line
 do
 
-    python3 ../parse_url.py -u $line
+    python3 ../../parse_url.py -u $line
     str=`cat ../attributes.txt`
     
     workspace=$(echo $str | cut -d' ' -f 1)
