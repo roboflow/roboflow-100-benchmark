@@ -1,0 +1,1 @@
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/bccd-1: 0.00286

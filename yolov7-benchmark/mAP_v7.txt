@@ -1,0 +1,8 @@
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/corrosion-1: 0.71
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/construction-safety-1: 0.885
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/washroom-1: 0.636
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/vehicles-1: 0.475
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/cable-damage-1: 0.838
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/apples-1: 0.798
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/shark-teeth-1: 0.659
+/home/ubuntu/flo/roboflow-100-benchmark/yolov7-benchmark/yolov7/4-fold-defect-1: 0.952
