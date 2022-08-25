@@ -1,0 +1,3 @@
+[submodule "GLIP-benchmark/GLIP"]
+	path = GLIP-benchmark/GLIP
+	url = https://github.com/microsoft/GLIP
