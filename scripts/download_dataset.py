@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from os import environ
-
+from pathlib import Path
 from roboflow import Roboflow
 
 
@@ -23,11 +23,21 @@ def main():
         help="The version the dataset you want to use",
     )
     parser.add_argument(
-        "-d",
-        "--download",
-        required=True,
+        "-f",
+        "--model_format",
+        required=False,
         type=str,
+        default='coco',
         help="The format of the export you want to use (i.e. coco or yolov5)",
+    )
+
+    parser.add_argument(
+        "-l",
+        "--location",
+        required=False,
+        type=str,
+        default="./rf100",
+        help="Where to store the dataset",
     )
     # parses command line arguments
     args = vars(parser.parse_args())
@@ -38,15 +48,16 @@ def main():
         raise KeyError(
             "You must export your Roboflow api key, to obtain one see https://docs.roboflow.com/rest-api."
         )
-
+    # create location if it doesn't exist
+    out_dir = Path(args['location']) / args["project"] 
+    out_dir.mkdir(parents=True, exist_ok=True)
+    print(f'Storing {args["project"] } in {out_dir}')
+    # get and download the dataset
     rf = Roboflow(api_key=api_key)  # change this to parameter
     project = rf.workspace("roboflow-100").project(args["project"])
     dataset = project.version(args["version"]).download(
-        args["download"], location="dataset"
+        args["model_format"], location=str(out_dir)
     )
-
-    with open("../loc.txt", "w") as f:
-        f.write(dataset.location)
 
 
 if __name__ == "__main__":
