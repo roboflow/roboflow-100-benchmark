@@ -1,10 +1,10 @@
 import yaml
-import argparse
+from argparse import ArgumentParser
 # construct the argument parser and parse the arguments
-ap = argparse.ArgumentParser()
+parser = ArgumentParser()
 
-ap.add_argument("-l", "--loc", required=True, help="data file location")
-args = vars(ap.parse_args())
+parser.add_argument("-l", "--loc", required=True, help="data file location")
+args = vars(parser.parse_args())
 loc = args["loc"]
 
 

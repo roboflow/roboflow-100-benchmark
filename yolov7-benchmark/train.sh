@@ -1,6 +1,6 @@
 #!/bin/bash
-
-input="../../url_list.txt"
+set -euo pipefail
+input="$(pwd)/datasets.txt"
 
 
 file="mAP_v7.txt"

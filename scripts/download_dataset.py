@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from os import environ
 
 from roboflow import Roboflow
 
@@ -28,18 +29,17 @@ def main():
         type=str,
         help="The format of the export you want to use (i.e. coco or yolov5)",
     )
-    parser.add_argument(
-        "-k",
-        "--api_key",
-        required=True,
-        type=str,
-        help="The api key to access Roboflow, see https://docs.roboflow.com/rest-api.",
-    )
-
     # parses command line arguments
     args = vars(parser.parse_args())
 
-    rf = Roboflow(api_key=args["api_key"])  # change this to parameter
+    try:
+        api_key = environ["ROBOFLOW_API_KEY"]
+    except KeyError:
+        raise KeyError(
+            "You must export your Roboflow api key, to obtain one see https://docs.roboflow.com/rest-api."
+        )
+
+    rf = Roboflow(api_key=api_key)  # change this to parameter
     project = rf.workspace("roboflow-100").project(args["project"])
     dataset = project.version(args["version"]).download(
         args["download"], location="dataset"

@@ -1,6 +1,6 @@
 #!/bin/bash
-
-input="../../url_list.txt"
+set -euo pipefail
+input="$(pwd)/datasets.txt"
 
 
 #check if yolov5 exists, if not 
