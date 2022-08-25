@@ -6,7 +6,6 @@ def main():
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
 
-
     ap.add_argument("-p", "--project", required=True, help="The project ID of the dataset found in the dataset URL.")
     ap.add_argument("-v", "--version", required=True, help="The version the dataset you want to use")
     ap.add_argument("-d", "--download", required=True, help="The format of the export you want to use (i.e. coco or yolov5)")
@@ -25,7 +24,6 @@ def main():
 
     with open('../loc.txt', 'w') as f:
         f.write(dataset.location)
-
 
     return 
 

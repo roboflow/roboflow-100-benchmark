@@ -78,7 +78,3 @@ https://app.roboflow.com/roboflow-100/axial-mri/1
 https://app.roboflow.com/roboflow-100/gynecology-mri/1
 https://app.roboflow.com/roboflow-100/brain-tumor-m2pbp/1
 https://app.roboflow.com/roboflow-100/bone-fracture-7fylg/1
-
-
-
-

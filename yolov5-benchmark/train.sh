@@ -46,7 +46,7 @@ do
  
     ############### 3 RUN EVALUATION #################
     python3 val.py --weights runs/train/roboflow-100/$project/$version/weights/best.pt --data $loc/data.yaml --img 640 --iou 0.65 --verbose |& tee val_eval.txt # evaluate the model
-    
+
     python3 ../parse_eval.py -l $loc # parse through evaluation 
 
     echo "All the work has been completed. Removing the dataset folder..."
