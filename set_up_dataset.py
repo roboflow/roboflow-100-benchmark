@@ -6,29 +6,24 @@ def main():
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
 
-    # ap.add_argument("-k", "--api_key", required=True, help="api key") 
-    ap.add_argument("-w", "--workspace", required=True, help="workspace")
-    ap.add_argument("-p", "--project", required=True, help="project")
-    ap.add_argument("-v", "--version", required=True, help="version")
-    ap.add_argument("-d", "--download", required=True, help="download")
+    ap.add_argument("-p", "--project", required=True, help="The project ID of the dataset found in the dataset URL.")
+    ap.add_argument("-v", "--version", required=True, help="The version the dataset you want to use")
+    ap.add_argument("-d", "--download", required=True, help="The format of the export you want to use (i.e. coco or yolov5)")
 
     # parses command line arguments 
     args = vars(ap.parse_args())
 
-    # api_key = args["api_key"] 
-    workspace = args["workspace"] 
     project = args["project"]
     version = args["version"]
     download = args["download"]
 
 
-    rf = Roboflow(api_key="ddkQGNIW95EfGbudHOeh")
-    project = rf.workspace(workspace).project(project)
-    dataset = project.version(int(version)).download(download)
+    rf = Roboflow(api_key="ddkQGNIW95EfGbudHOeh") #change this to parameter 
+    project = rf.workspace("roboflow-100").project(project)
+    dataset = project.version(int(version)).download(download, location="dataset")
 
     with open('../loc.txt', 'w') as f:
         f.write(dataset.location)
-
 
     return 
 
