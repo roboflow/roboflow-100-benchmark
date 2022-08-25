@@ -1,3 +1,6 @@
 [submodule "GLIP-benchmark/GLIP"]
 	path = GLIP-benchmark/GLIP
 	url = https://github.com/microsoft/GLIP
+[submodule "yolov7-benchmark/yolov7"]
+	path = yolov7-benchmark/yolov7
+	url = https://github.com/WongKinYiu/yolov7
