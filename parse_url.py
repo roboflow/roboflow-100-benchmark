@@ -14,7 +14,7 @@ def parser():
     res = re.split("/+", url)
     res = res[2] + " " + res[3] + " " + res[4]
 
-    with open('../attributes.txt', 'w') as f:
+    with open('attributes.txt', 'w') as f:
         f.write(res)
     return 
 
