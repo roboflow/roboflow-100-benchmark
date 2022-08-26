@@ -1,5 +1,6 @@
-import yaml
 import argparse
+
+import yaml
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()

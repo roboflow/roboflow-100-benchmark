@@ -1,5 +1,7 @@
-import yaml
 from argparse import ArgumentParser
+
+import yaml
+
 # construct the argument parser and parse the arguments
 parser = ArgumentParser()
 
