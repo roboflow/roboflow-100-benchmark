@@ -58,6 +58,7 @@ def main():
     dataset = project.version(args["version"]).download(
         args["model_format"], location=str(out_dir)
     )
+    print('Done!')
 
 
 if __name__ == "__main__":
