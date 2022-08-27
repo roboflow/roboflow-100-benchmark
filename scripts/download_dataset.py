@@ -51,11 +51,11 @@ def main():
     # create location if it doesn't exist
     out_dir = Path(args['location']) / args["project"] 
     out_dir.mkdir(parents=True, exist_ok=True)
-    print(f'Storing {args["project"] } in {out_dir}')
+    print(f'Storing {args["project"] } in {out_dir} for {args["model_format"]}')
     # get and download the dataset
     rf = Roboflow(api_key=api_key)  # change this to parameter
     project = rf.workspace("roboflow-100").project(args["project"])
-    dataset = project.version(args["version"]).download(
+    project.version(args["version"]).download(
         args["model_format"], location=str(out_dir)
     )
     print('Done!')
