@@ -1,8 +1,14 @@
 # Roboflow 100: A Rich, Multi-Task Object Detection Benchmark
 
-This repository implements the Roboflow 100 benchmark developed by [Roboflow](https://roboflow.com/). It contains code download the dataset and to reproduce 
+This repository implements the Roboflow 100 benchmark developed by [Roboflow](https://roboflow.com/). It contains code to download the dataset and reproduce 
 mAP values for YOLOv5 and YOLOv7 Fine-Tuning and GLIP Evaluation on 100 of Roboflow Universe
 datasets. 
+
+## RF100
+
+`RF100` contains the following datasets, carefully chosen from more than 90'000 datasets hosted on our hub.
+
+**TODO** create a table
 
 ## Getting Started
 
@@ -16,11 +22,13 @@ cd roboflow-100-benchmark
 
 You will need an API key. `RF100` can be accessed with any key from Roboflow, head over [our doc](https://docs.roboflow.com/rest-api.') to learn how to get one.
 
-Then, export the key in your current shell
+Then, export the key to your current shell
 
 ```bash
 export ROBOFLOW_API_KEY=<YOUR_API_KEY>
 ```
+
+**Note**: The datasets are taken from `datasets_links.txt`, you can modify that file to add/remove datasets.
 
 ### Docker
 
