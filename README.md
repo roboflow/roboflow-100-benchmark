@@ -6,7 +6,7 @@ datasets.
 
 ## RF100
 
-`RF100` contains the following datasets, carefully chosen from more than 90'000 datasets hosted on our hub.
+`RF100` contains the following datasets, carefully chosen from more than 90'000 datasets hosted on our [universe hub](https://universe.roboflow.com/).
 
 **TODO** create a table
 
@@ -32,7 +32,7 @@ export ROBOFLOW_API_KEY=<YOUR_API_KEY>
 
 ### Docker
 
-The easiest and faster way to download `RF100` is using [docker]() and our [Dockerfile](Dockerfile.rf100.download).
+The easiest and faster way to download `RF100` is using [docker](https://docs.docker.com/engine/install/) and our [Dockerfile](Dockerfile.rf100.download).
 
 First, build the container
 
