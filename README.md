@@ -49,7 +49,11 @@ docker run --rm -it -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY -v $(pwd)/rf100:/app/r
 Internally, `RF100` will downloaded to `/app/rf100`. You can also specify the format with the `-f` flag, by default `coco` is used.
 
 ```bash
- docker run --rm -it -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY -v $(pwd)/rf100:/app/rf100 rf100-download -f yolov5
+docker run --rm -it \
+    -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
+    -v ${PWD}/rf100:/workspace/rf100 \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    rf100-download -f yolov5
 ```
 
 
@@ -94,3 +98,8 @@ Execute the following commands to reproduce GLIP Evaluation values.
 
 The output will be stored in the ```mAP_output.txt``` file.
 
+
+
+nvidia-docker run --gpus all --rm -it --ipc host --shm-size 64g \
+    -v ${PWD}/rf100:/workspace/rf100 \
+    rf100-benchmark

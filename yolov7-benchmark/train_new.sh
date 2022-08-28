@@ -1,14 +1,19 @@
 #!/bin/bash
 set -euo pipefail
 
-while getopts f:l: flag
-do
-    case "${flag}" in
-        l) location=${OPTARG};;
-    esac
-done
-# default values
-location=${location:-$(pwd)/rf100}
+
+#git reset --hard commit c14ba0c297b3b5fc0374c917db798c88f9dd226c
+#pip install --extra-index-url=https://pypi.ngc.nvidia.com --trusted-host pypi.ngc.nvidia.com -qr requirements.txt
+
+dir=$(pwd)/runs/yolo-v7/train
+data=$dir/rf100
+
+rm -rf $dir
+mkdir -p $dir
+
+$(pwd)/scripts/download_datasets.sh -l $data -f yolov5
+
+cd $(pwd)/yolov7-benchmark/
 
 file="mAP_v7.txt"
 
@@ -17,37 +22,14 @@ if [ -f "$file" ] ; then
 fi
 touch "$file"
 
-
-cd $(pwd)/yolov7-benchmark/
-#git reset --hard commit c14ba0c297b3b5fc0374c917db798c88f9dd226c
-#pip install --extra-index-url=https://pypi.ngc.nvidia.com --trusted-host pypi.ngc.nvidia.com -qr requirements.txt
-
-dir=$(pwd)/runs/yolo-v7/train/rf-100/
-
-rm -rf dir
-mkdir dir
-
+wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
 
 for dataset in $(ls $location)
 do
-    echo $dataset
+    echo "Training on $dataset"
+    python train.py --img 640 --batch 8 --epochs 100 --name $dataset --data $dataset/data.yaml  --weights ./yolov7.pt --cache
 done
 
-# while IFS= read -r line
-# do
-
-#     python3 ../../parse_url.py -u $line
-#     str=`cat attributes.txt`
-    
-#     project=$(echo $str | cut -d' ' -f 2)
-#     version=$(echo $str | cut -d' ' -f 3)
-
-
-#     ############ 1 DOWLOAD DATASET ####################
-#     # set_up_dataset.py imports the dataset from the Universe and loads it on our machine
-#     python3 ../../set_up_dataset.py --p $project --v $version --d yolov5
-#     loc=`cat ../loc.txt`  # file with the dataset path stored
-   
 #     ############### 2 RUN TRAINING ################# yolov5/
 #     python3 train.py --img 640 --batch 8 --epochs 10000 --name roboflow-100/$project/$version --data $loc/data.yaml --weights yolov7.pt --cache # train the model on loaded dataset
 #     echo "here"
