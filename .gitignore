@@ -1,4 +1,5 @@
 rf100/
+runs/
 yolov5-benchmark/attributes.txt
 yolov5-benchmark/loc.txt
 venv/

@@ -74,32 +74,45 @@ chmod +x ./scripts/download_datasets.sh
 ./scripts/download_datasets.sh -l <path_to_my_location> change download location
 ```
 
-## Reproduce YOLOv5 Fine-Tuning
-Execute the following commands to reproduce YOLOv5 Fine Tuning values. 
+## Reproduce Results
 
-1) ```cd yolov5-benchmark```
-2) ```bash train.sh```
+We will use docker to ensure the same enviroment is used.
 
-The output will be stored in the ```mAP_v5.txt``` file. 
-
-## Reproduce YOLOv7 Fine-Tuning
-Execute the following commands to reproduce YOLOv7 Fine Tuning values. 
-
-1) ```cd yolov7-benchmark```
-2) ```bash train.sh```
-
-The output will be stored in the ```mAP_v7.txt``` file. 
-
-## Reproduce GLIP Evaluation
-Execute the following commands to reproduce GLIP Evaluation values. 
-
-1) ```cd GLIP-benchmark/GLIP/```
-2) ```bash GLIP_eval.sh ```
-
-The output will be stored in the ```mAP_output.txt``` file.
+First, build the container
 
 
+```
+docker build -t rf100-benchmark -f Dockerfile.rf100.benchmark .
+```
 
-nvidia-docker run --gpus all --rm -it --ipc host --shm-size 64g \
-    -v ${PWD}/rf100:/workspace/rf100 \
-    rf100-benchmark
+Then, follow the guide for each model.
+
+All results are stored inside `./runs`. 
+
+### YOLOv5 Fine-Tuning
+
+**Note**, we will map the current folder to the container file system to persist data
+
+```bash
+nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
+    -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    -v /etc/group:/etc/group:ro \
+    -v ${PWD}:/workspace/ \
+    rf100-benchmark ./yolov5-benchmark/train.sh	
+```
+
+### YOLOv7 Fine-Tuning
+**Note**, we will map the current folder to the container file system to persist data
+
+```bash
+nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
+    -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    -v /etc/group:/etc/group:ro \
+    -v ${PWD}:/workspace/ \
+    rf100-benchmark ./yolov5-benchmark/train.sh	
+```
+### GLIP
+
+**TODO**

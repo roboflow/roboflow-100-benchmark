@@ -1,23 +1,26 @@
-from argparse import ArgumentParser
+import argparse
 
 import yaml
 
 # construct the argument parser and parse the arguments
-parser = ArgumentParser()
+ap = argparse.ArgumentParser()
 
-parser.add_argument("-l", "--loc", required=True, help="data file location")
-args = vars(parser.parse_args())
-loc = args["loc"]
 
+ap.add_argument("-i", "--input", required=True, help="Input file to parse")
+ap.add_argument("-l", "--location", required=True, help="Dataset location (where data.yaml is)")
+ap.add_argument("-o", "--output", required=True, help="Output file to write")
+
+args = vars(ap.parse_args())
+location = args["location"]
 
 def should_remove_line(line, stop_words):
     return any([word in line for word in stop_words])
 
 
-with open(loc + "/data.yaml", "r") as stream:
+with open(location + "/data.yaml", "r") as stream:
     class_names = yaml.safe_load(stream)["names"]
 
-with open("val_eval.txt", "r") as f:
+with open(args["input"], "r") as f:
     lines = f.readlines()
     eval_lines = []
     for line in lines:
@@ -65,9 +68,9 @@ else:
     print("There's only one dict res")
     map_val = [res["map50"] for res in eval_lines][0]
 
-res = loc, ": ", map_val
+res = location, ": ", map_val
 
 
-with open("../mAP_v5.txt", "a") as f:
+with open(args['output'], "a") as f:
     f.write("".join(res))
     f.write("\n")

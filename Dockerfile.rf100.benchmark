@@ -1,0 +1,9 @@
+FROM nvcr.io/nvidia/pytorch:21.08-py3
+RUN apt update && \ 
+    apt install -y zip htop screen libgl1-mesa-glx 
+RUN pip install seaborn thop
+RUN pip install roboflow
+# https://stackoverflow.com/questions/72706073/attributeerror-partially-initialized-module-cv2-has-no-attribute-gapi-wip-gs
+RUN pip install opencv-contrib-python==4.5.5.62
+COPY . .
+ENTRYPOINT [ "/bin/bash" ]
