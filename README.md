@@ -80,7 +80,6 @@ We will use docker to ensure the same enviroment is used.
 
 First, build the container
 
-
 ```
 docker build -t rf100-benchmark -f Dockerfile.rf100.benchmark .
 ```
