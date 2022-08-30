@@ -52,6 +52,7 @@ Internally, `RF100` will downloaded to `/app/rf100`. You can also specify the fo
 docker run --rm -it \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v ${PWD}/rf100:/workspace/rf100 \
+    -v ${PWD}/datasets_links.txt:/workspace/datasets_links.txt \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     rf100-download -f yolov5
 ```

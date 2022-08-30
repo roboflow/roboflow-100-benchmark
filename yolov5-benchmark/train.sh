@@ -1,10 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-
-#git reset --hard commit c14ba0c297b3b5fc0374c917db798c88f9dd226c
-#pip install --extra-index-url=https://pypi.ngc.nvidia.com --trusted-host pypi.ngc.nvidia.com -qr requirements.txt
-
 dir=$(pwd)/runs/yolo-v5
 echo $dir
 datasets=$dir/rf100
