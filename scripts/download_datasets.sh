@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-input="$(pwd)/datasets_links.txt"
+input="$(pwd)/datasets_links_640.txt"
 
 while getopts f:l: flag
 do

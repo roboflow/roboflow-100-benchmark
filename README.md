@@ -71,7 +71,7 @@ pip install roboflow
 Then,
 
 ```bash
-chmod +x ./scripts/download_datasets.sh
+chmod 770 ./scripts/download_datasets.sh
 ./scripts/download_datasets.sh 
 ./scripts/download_datasets.sh -f yolov5 $ change format
 ./scripts/download_datasets.sh -l <path_to_my_location> change download location
@@ -116,6 +116,7 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v /etc/group:/etc/group:ro \
     -v ${PWD}/runs:/workspace/runs \
+    -v ${PWD}/datasets_links_640_0-50.txt:/workspace/datasets_links_640.txt \
     rf100-benchmark ./yolov5-benchmark/train.sh	
 ```
 ### [GLIP](https://github.com/microsoft/GLIP)
