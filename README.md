@@ -34,6 +34,10 @@ export ROBOFLOW_API_KEY=<YOUR_API_KEY>
 
 The easiest and faster way to download `RF100` is using [docker](https://docs.docker.com/engine/install/) and our [Dockerfile](Dockerfile.rf100.download).
 
+**NOTE** Be sure to do the [post process steps](https://docs.docker.com/engine/install/linux-postinstall/) after you installed docker, we will read and write to shared volumes so your user should also be in the docker group.
+
+If you have an NVIDIA GPU, be sure to also install [nvidia docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+
 First, build the container
 
 ```bash
@@ -53,10 +57,8 @@ docker run --rm -it \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v ${PWD}/rf100:/workspace/rf100 \
     -v ${PWD}/datasets_links.txt:/workspace/datasets_links.txt \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
     rf100-download -f yolov5
 ```
-
 
 ### Local Env
 
@@ -75,6 +77,11 @@ chmod +x ./scripts/download_datasets.sh
 ./scripts/download_datasets.sh -l <path_to_my_location> change download location
 ```
 
+### Formats
+Supported formats are 
+- `coco`
+- `yolov5` (used by YOLOv7 as well)
+
 ## Reproduce Results
 
 We will use docker to ensure the same enviroment is used.
@@ -89,30 +96,49 @@ Then, follow the guide for each model.
 
 All results are stored inside `./runs`. 
 
-### YOLOv5 Fine-Tuning
+### [YOLOv5](https://github.com/ultralytics/yolov5) Fine-Tuning
 
 **Note**, we will map the current folder to the container file system to persist data
 
 ```bash
 nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
     -v /etc/group:/etc/group:ro \
-    -v ${PWD}:/workspace/ \
+    -v ${PWD}/runs:/workspace/runs \
     rf100-benchmark ./yolov5-benchmark/train.sh	
 ```
 
-### YOLOv7 Fine-Tuning
+### [YOLOv7](https://github.com/WongKinYiu/yolov7) Fine-Tuning
 **Note**, we will map the current folder to the container file system to persist data
 
 ```bash
 nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
     -v /etc/group:/etc/group:ro \
-    -v ${PWD}:/workspace/ \
+    -v ${PWD}/runs:/workspace/runs \
     rf100-benchmark ./yolov5-benchmark/train.sh	
 ```
-### GLIP
+### [GLIP](https://github.com/microsoft/GLIP)
 
-**TODO**
+```bash
+nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
+    -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
+    -v /etc/group:/etc/group:ro \
+    -v ${PWD}/runs:/workspace/runs \
+    -v ${PWD}/GLIP-benchmark/train.sh:/workspace/GLIP-benchmark/train.sh \
+    rf100-benchmark ./GLIP-benchmark/train.sh	
+```
+<!-- -u $(id -u ${USER}):$(id -g ${USER}) \ -->
+
+
+<!-- **TODO**
+
+
+nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
+    -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    -v /etc/group:/etc/group:ro \
+    -v ${PWD}/runs:/workspace/runs \
+    -v ${PWD}/GLIP-benchmark/train.sh:/workspace/GLIP-benchmark/train.sh \
+    rf100-benchmark -->
+
