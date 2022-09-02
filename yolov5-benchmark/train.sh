@@ -21,6 +21,8 @@ if [ ! -f "yolov5s.pt" ] ; then
 fi
 
 cd yolov5/
+# for AttributeError: partially initialized module ‘cv2’ has no attribute ‘gapi_wip_gst_GStreamerPipeline’ (most likely due to a circular import)
+pip install opencv-python==4.5.5.64
 
 for dataset in $(ls $datasets)
 do
