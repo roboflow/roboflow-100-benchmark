@@ -1,62 +1,40 @@
 #!/bin/bash
+set -euo pipefail
 
-input="../../url_list.txt"
+dir=$(pwd)/runs/yolo-v5
+echo $dir
+datasets=$dir/rf100
 
-
-#check if yolov5 exists, if not 
-### Check if a directory does not exist ###
-if [ ! -d "yolov5/" ] 
-then
-    echo "Cloning new repository." 
-    #git clone yolov5 repo
-    git clone https://github.com/ultralytics/yolov5.git
+if [ ! -d $datasets ] ; then
+    $(pwd)/scripts/download_datasets.sh -l $datasets -f yolov5
 fi
 
-file="mAP_v5.txt"
-
-if [ -f "$file" ] ; then
-    rm "$file"
+if [ ! -f "$dir/final_eval.txt" ] ; then
+    touch "$dir/final_eval.txt"
 fi
-touch "$file"
 
+
+cd $(pwd)/yolov5-benchmark/
+
+if [ ! -f "yolov5s.pt" ] ; then
+    wget https://github.com/ultralytics/yolov5/releases/download/v6.2/yolov5s.pt
+fi
 
 cd yolov5/
-pip install -qr requirements.txt
-git reset --hard commit 2dd3db0050cd228e7a7ca3ff72ab7e3f34ea64d7
+# for AttributeError: partially initialized module ‘cv2’ has no attribute ‘gapi_wip_gst_GStreamerPipeline’ (most likely due to a circular import)
+pip install opencv-python==4.5.5.64
 
-rm -rf runs/train/roboflow-100/
-
-while IFS= read -r line
+for dataset in $(ls $datasets)
 do
-
-    python3 ../../parse_url.py -u $line
-    str=`cat attributes.txt`
-    
-    project=$(echo $str | cut -d' ' -f 2)
-    version=$(echo $str | cut -d' ' -f 3)
-
-    echo "$project"
-    ############ 1 DOWLOAD DATASET ####################
-    # set_up_dataset.py imports the dataset from the Universe and loads it on our machine
-    python3 ../../set_up_dataset.py --p $project --v $version --d yolov5
-    loc=`cat ../loc.txt`  # file with the dataset path stored
-    echo "$loc"
-    ############### 2 RUN TRAINING ################# 
-    python3 train.py --img 640 --batch 16 --patience 40 --epochs 10000 --name roboflow-100/$project/$version --data $loc/data.yaml --weights yolov5s.pt --cache # train the model on loaded dataset
- 
-    ############### 3 RUN EVALUATION #################
-    python3 val.py --weights runs/train/roboflow-100/$project/$version/weights/best.pt --data $loc/data.yaml --img 640 --iou 0.65 --verbose |& tee val_eval.txt # evaluate the model
-
-    python3 ../parse_eval.py -l $loc # parse through evaluation 
-
-    echo "All the work has been completed. Removing the dataset folder..."
-    rm -rf $loc
-
-    echo "Onto the next one!";
-    echo " ";
-    
-
-done < "$input"
+    dataset=$datasets/$dataset
+    echo "Training on $dataset"
+    python train.py --img 640 --batch 16 --epochs 100 --name $dataset/results --data $dataset/data.yaml  --weights ./yolov5s.pt
+    python val.py --data $dataset/data.yaml --img 640 --batch 16 --weights $dataset/results/weights/best.pt --name  $dataset --exist-ok --verbose |& tee $dataset/val_eval.txt 
+    python ../parse_eval.py -i $dataset/val_eval.txt -l $dataset -o $dir/final_eval.txt
+done
 
 echo "Done training all the datasets with YOLOv5!"
+
+
+
 

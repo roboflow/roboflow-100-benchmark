@@ -4,3 +4,6 @@
 [submodule "yolov7-benchmark/yolov7"]
 	path = yolov7-benchmark/yolov7
 	url = https://github.com/WongKinYiu/yolov7
+[submodule "yolov5-benchmark/yolov5"]
+	path = yolov5-benchmark/yolov5
+	url = https://github.com/ultralytics/yolov5
