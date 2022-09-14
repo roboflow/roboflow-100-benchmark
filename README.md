@@ -1,8 +1,8 @@
 # Roboflow 100: A Rich, Multi-Task Object Detection Benchmark
 
-This repository implements the Roboflow 100 benchmark developed by [Roboflow](https://roboflow.com/). It contains code to download the dataset and reproduce 
+This repository implements the Roboflow 100 benchmark developed by [Roboflow](https://roboflow.com/). It contains code to download the dataset and reproduce
 mAP values for YOLOv5 and YOLOv7 Fine-Tuning and GLIP Evaluation on 100 of Roboflow Universe
-datasets. 
+datasets.
 
 ## RF100
 
@@ -14,10 +14,10 @@ datasets.
 
 First, clone this repo and go inside it.
 
-
 ```bash
 git clone https://github.com/roboflow-ai/roboflow-100-benchmark.git
 cd roboflow-100-benchmark
+git submodule update --init --recursive
 ```
 
 You will need an API key. `RF100` can be accessed with any key from Roboflow, head over [our doc](https://docs.roboflow.com/rest-api.') to learn how to get one.
@@ -72,13 +72,15 @@ Then,
 
 ```bash
 chmod 770 ./scripts/download_datasets.sh
-./scripts/download_datasets.sh 
+./scripts/download_datasets.sh
 ./scripts/download_datasets.sh -f yolov5 $ change format
 ./scripts/download_datasets.sh -l <path_to_my_location> change download location
 ```
 
 ### Formats
-Supported formats are 
+
+Supported formats are
+
 - `coco`
 - `yolov5` (used by YOLOv7 as well)
 
@@ -94,7 +96,7 @@ docker build -t rf100-benchmark -f Dockerfile.rf100.benchmark .
 
 Then, follow the guide for each model.
 
-All results are stored inside `./runs`. 
+All results are stored inside `./runs`.
 
 ### [YOLOv5](https://github.com/ultralytics/yolov5) Fine-Tuning
 
@@ -105,10 +107,11 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v /etc/group:/etc/group:ro \
     -v ${PWD}/runs:/workspace/runs \
-    rf100-benchmark ./yolov5-benchmark/train.sh	
+    rf100-benchmark ./yolov5-benchmark/train.sh
 ```
 
 ### [YOLOv7](https://github.com/WongKinYiu/yolov7) Fine-Tuning
+
 **Note**, we will map the current folder to the container file system to persist data
 
 ```bash
@@ -117,8 +120,9 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -v /etc/group:/etc/group:ro \
     -v ${PWD}/runs:/workspace/runs \
     -v ${PWD}/datasets_links_640_0-50.txt:/workspace/datasets_links_640.txt \
-    rf100-benchmark ./yolov5-benchmark/train.sh	
+    rf100-benchmark ./yolov5-benchmark/train.sh
 ```
+
 ### [GLIP](https://github.com/microsoft/GLIP)
 
 ```bash
@@ -127,10 +131,10 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -v /etc/group:/etc/group:ro \
     -v ${PWD}/runs:/workspace/runs \
     -v ${PWD}/GLIP-benchmark/train.sh:/workspace/GLIP-benchmark/train.sh \
-    rf100-benchmark ./GLIP-benchmark/train.sh	
+    rf100-benchmark ./GLIP-benchmark/train.sh
 ```
-<!-- -u $(id -u ${USER}):$(id -g ${USER}) \ -->
 
+<!-- -u $(id -u ${USER}):$(id -g ${USER}) \ -->
 
 <!-- **TODO**
 
@@ -142,4 +146,3 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -v ${PWD}/runs:/workspace/runs \
     -v ${PWD}/GLIP-benchmark/train.sh:/workspace/GLIP-benchmark/train.sh \
     rf100-benchmark -->
-
