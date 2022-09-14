@@ -119,8 +119,8 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v /etc/group:/etc/group:ro \
     -v ${PWD}/runs:/workspace/runs \
-    -v ${PWD}/datasets_links_640_0-50.txt:/workspace/datasets_links_640.txt \
-    rf100-benchmark ./yolov5-benchmark/train.sh
+    -v ${PWD}/datasets_links_640.txt:/workspace/datasets_links_640.txt \
+    rf100-benchmark ./yolov7-benchmark/train.sh
 ```
 
 ### [GLIP](https://github.com/microsoft/GLIP)
