@@ -33,7 +33,7 @@ pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==9.2.0
 prompt-toolkit==3.0.30
-protobuf==4.21.2
+protobuf==4.21.6
 psutil==5.9.1
 ptyprocess==0.7.0
 pure-eval==0.2.2
