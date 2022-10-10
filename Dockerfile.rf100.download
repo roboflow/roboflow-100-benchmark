@@ -2,5 +2,5 @@ FROM python:3.8-slim
 RUN pip install roboflow
 WORKDIR /workspace
 COPY ./scripts /workspace/scripts/
-COPY ./datasets_links.txt /workspace/
+COPY ./datasets_links_640.txt /workspace/datasets_links_640.txt
 ENTRYPOINT [ "./scripts/download_datasets.sh" ]

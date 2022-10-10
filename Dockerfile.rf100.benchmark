@@ -6,5 +6,5 @@ RUN pip install --no-cache-dir roboflow
 # https://stackoverflow.com/questions/72706073/attributeerror-partially-initialized-module-cv2-has-no-attribute-gapi-wip-gs
 RUN pip install --no-cache-dir opencv-contrib-python==4.5.5.62 yacs transformers timm einops shapely timm yacs tensorboardX ftfy prettytable pymongo
 COPY . .
-RUN cd /workspace/GLIP-benchmark/GLIP && python setup.py build develop --user
+#RUN cd /workspace/GLIP-benchmark/GLIP && python setup.py build develop --user
 ENTRYPOINT [ "/bin/bash" ]
