@@ -27,7 +27,7 @@ def main():
         "--model_format",
         required=False,
         type=str,
-        default='coco',
+        default="coco",
         help="The format of the export you want to use (i.e. coco or yolov5)",
     )
 
@@ -49,7 +49,7 @@ def main():
             "You must export your Roboflow api key, to obtain one see https://docs.roboflow.com/rest-api."
         )
     # create location if it doesn't exist
-    out_dir = Path(args['location']) / args["project"] 
+    out_dir = Path(args["location"]) / args["project"]
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f'Storing {args["project"] } in {out_dir} for {args["model_format"]}')
     # get and download the dataset
@@ -58,7 +58,7 @@ def main():
     project.version(args["version"]).download(
         args["model_format"], location=str(out_dir)
     )
-    print('Done!')
+    print("Done!")
 
 
 if __name__ == "__main__":
