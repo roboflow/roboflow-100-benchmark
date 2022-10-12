@@ -27,7 +27,7 @@ pip install opencv-python==4.5.5.64
 for dataset in $(ls $datasets)
 do
     dataset=$datasets/$dataset
-    echo "Training on $dataset"\
+    echo "Training on $dataset"
     if [ ! -d "$dataset/results" ] ;
     then
         python train.py --img 640 --batch 16 --epochs 100 --name $dataset/results --data $dataset/data.yaml  --weights ./yolov5s.pt
