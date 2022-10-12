@@ -47,14 +47,53 @@ def get_rf100_split_stats(root: Path) -> pd.DataFrame:
     return pd.DataFrame.from_records(records).set_index("name")
 
 
-def get_rf100_results(rf100_version_and_links: pd.DataFrame, rf100_split_stats: pd.DataFrame, rf100_train_results: pd.DataFrame) -> pd.DataFrame:
+def get_rf100_results(
+    rf100_version_and_links: pd.DataFrame,
+    rf100_split_stats: pd.DataFrame,
+    rf100_train_results: pd.DataFrame,
+) -> pd.DataFrame:
 
     df = rf100_version_and_links.join(rf100_split_stats).join(rf100_train_results)
 
     return df
 
+
 rf100_version_and_links = get_rf100_version_and_links(Path("."))
 rf100_split_stats = get_rf100_split_stats(Path("./rf100"))
-rf100_train_results = pd.read_csv('./results.csv', index_col=0)
-results = get_rf100_results(rf100_version_and_links, rf100_split_stats, rf100_train_results)
-print(results.to_latex())
+rf100_train_results = pd.read_csv("./results.csv", index_col=0)
+results = get_rf100_results(
+    rf100_version_and_links, rf100_split_stats, rf100_train_results
+)
+results = results.reset_index()
+# formatting for latex
+format_name = lambda x: " ".join(x.split("-")[:2])
+add_link = lambda link, name: "\href{" + link + "}{" + name + "}"
+results["name"] = results.apply(
+    lambda x: add_link(x["link"], format_name(x["name"])), axis=1
+)
+del results["version"]
+del results["link"]
+results = results.set_index("name", drop=True)
+# s = results.style.highlight_max(
+#     props='cellcolor:[HTML]{FFFF00}; color:{red}; itshape:; bfseries:;'
+# )
+# https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.to_latex.html
+table_style = results.style
+table_style.clear()
+table_style.table_styles = []
+table_style.caption = None
+table_style = table_style.format(
+    {
+        "train": "{}",
+        "val": "{}",
+        "test": "{}",
+        "yolov5": "{:.4f}",
+        "yolov7": "{:.4f}",
+    }
+)
+print(
+    table_style.to_latex(
+        "table.tex", hrules=True, clines="all;data", position_float="centering"
+    )
+)
+#
