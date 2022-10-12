@@ -1,4 +1,5 @@
 rf100/
 runs/
+runs_first_run/
 **/*.pth
 **/*.pt

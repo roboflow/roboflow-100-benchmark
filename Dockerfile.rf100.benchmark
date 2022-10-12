@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:21.08-py3
+FROM nvcr.io/nvidia/pytorch:22.08-py3
 RUN apt update && \ 
     apt install -y zip htop screen libgl1-mesa-glx 
 RUN pip install --no-cache-dir seaborn thop
