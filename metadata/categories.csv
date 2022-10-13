@@ -1,0 +1,101 @@
+dataset,category
+hand-gestures-jps7z,real world
+smoke-uvylj,real world
+wall-damage,real world
+corrosion-bi3q3,real world
+excavators-czvg9,real world
+chess-pieces-mjzgj,real world
+road-signs-6ih4y,real world
+street-work,real world
+construction-safety-gsnvb,real world
+road-traffic,real world
+washroom-rf1fa,real world
+circuit-elements,real world
+mask-wearing-608pr,real world
+cables-nl42k,real world
+soda-bottles,real world
+truck-movement,real world
+wine-labels,real world
+digits-t2eg6,real world
+vehicles-q0x2v,real world
+peanuts-sd4kf,real world
+printed-circuit-board,real world
+pests-2xlvx,real world
+cavity-rs0uf,real world
+leaf-disease-nsdsr,real world
+marbles,real world
+pills-sxdht,real world
+poker-cards-cxcvz,real world
+number-ops,real world
+insects-mytwu,real world
+cotton-20xz5,real world
+furniture-ngpea,real world
+cable-damage,real world
+animals-ij5d2,real world
+coins-1apki,real world
+apples-fvpl5,real world
+people-in-paintings,real world
+circuit-voltages,real world
+uno-deck,real world
+grass-weeds,real world
+gauge-u2lwv,real world
+sign-language-sokdr,real world
+valentines-chocolate,real world
+fish-market-ggjso,real world
+lettuce-pallets,real world
+shark-teeth-5atku,real world
+bees-jt5in,real world
+sedimentary-features-9eosf,real world
+currency-v4f8j,real world
+trail-camera,real world
+cell-towers,real world
+apex-videogame,videogames
+farcry6-videogame,videogames
+csgo-videogame,videogames
+avatar-recognition-nuexe,videogames
+halo-infinite-angel-videogame,videogames
+team-fight-tactics,videogames
+robomasters-285km,videogames
+tweeter-posts,documents
+tweeter-profile,documents
+document-parts,documents
+activity-diagrams-qdobr,documents
+signatures-xc8up,documents
+paper-parts,documents
+tabular-data-wf9uh,documents
+paragraphs-co84b,documents
+underwater-pipes-4ng4t,underwater
+aquarium-qlnqy,underwater
+peixos-fish,underwater
+underwater-objects-5v7p8,underwater
+coral-lwptl,underwater
+aerial-pool,aerial
+secondary-chains,aerial
+aerial-spheres,aerial
+soccer-players-5fuqs,aerial
+weed-crop-aerial,aerial
+aerial-cows,aerial
+cloud-types,aerial
+stomata-cells,microscopic
+bccd-ouzjz,microscopic
+parasites-1s07h,microscopic
+cells-uyemf,microscopic
+4-fold-defect,microscopic
+bacteria-ptywi,microscopic
+cotton-plant-disease,microscopic
+mitosis-gjs3g,microscopic
+phages,microscopic
+liver-disease,microscopic
+asbestos,microscopic
+thermal-dogs-and-people-x6ejw,electromagnetic
+solar-panels-taxvb,electromagnetic
+radio-signal,electromagnetic
+thermal-cheetah-my4dp,electromagnetic
+x-ray-rheumatology,electromagnetic
+acl-x-ray,electromagnetic
+abdomen-mri,electromagnetic
+axial-mri,electromagnetic
+gynecology-mri,electromagnetic
+brain-tumor-m2pbp,electromagnetic
+bone-fracture-7fylg,electromagnetic
+flir-camera-objects,electromagnetic

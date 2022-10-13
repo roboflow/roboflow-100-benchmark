@@ -1,15 +1,8 @@
 https://app.roboflow.com/roboflow-100/tweeter-profile/1
-<<<<<<< HEAD:datasets_links_640.txt
 https://app.roboflow.com/roboflow-100/gauge-u2lwv/4
 https://app.roboflow.com/roboflow-100/road-traffic/3
 https://app.roboflow.com/roboflow-100/wall-damage/1
 https://app.roboflow.com/roboflow-100/fish-market-ggjso/5
-=======
-https://app.roboflow.com/roboflow-100/gauge-u2lwv/2
-https://app.roboflow.com/roboflow-100/road-traffic/1
-https://app.roboflow.com/roboflow-100/wall-damage/1
-https://app.roboflow.com/roboflow-100/fish-market-ggjso/3
->>>>>>> main:url_list.txt
 https://app.roboflow.com/roboflow-100/soda-bottles/3
 https://app.roboflow.com/roboflow-100/flir-camera-objects/1
 https://app.roboflow.com/roboflow-100/stomata-cells/1
@@ -42,20 +35,12 @@ https://app.roboflow.com/roboflow-100/bone-fracture-7fylg/1
 https://app.roboflow.com/roboflow-100/marbles/1
 https://app.roboflow.com/roboflow-100/cavity-rs0uf/1
 https://app.roboflow.com/roboflow-100/pests-2xlvx/1
-<<<<<<< HEAD:datasets_links_640.txt
 https://app.roboflow.com/roboflow-100/printed-circuit-board/3
-=======
-https://app.roboflow.com/roboflow-100/printed-circuit-board/1
->>>>>>> main:url_list.txt
 https://app.roboflow.com/roboflow-100/peanuts-sd4kf/1
 https://app.roboflow.com/roboflow-100/vehicles-q0x2v/1
 https://app.roboflow.com/roboflow-100/digits-t2eg6/1
 https://app.roboflow.com/roboflow-100/wine-labels/1
-<<<<<<< HEAD:datasets_links_640.txt
 https://app.roboflow.com/roboflow-100/truck-movement/3
-=======
-https://app.roboflow.com/roboflow-100/truck-movement/1
->>>>>>> main:url_list.txt
 https://app.roboflow.com/roboflow-100/coral-lwptl/1
 https://app.roboflow.com/roboflow-100/brain-tumor-m2pbp/1
 https://app.roboflow.com/roboflow-100/cotton-plant-disease/1
@@ -72,15 +57,9 @@ https://app.roboflow.com/roboflow-100/parasites-1s07h/1
 https://app.roboflow.com/roboflow-100/aerial-cows/1
 https://app.roboflow.com/roboflow-100/aerial-spheres/1
 https://app.roboflow.com/roboflow-100/secondary-chains/1
-<<<<<<< HEAD:datasets_links_640.txt
 https://app.roboflow.com/roboflow-100/aerial-pool/3
 https://app.roboflow.com/roboflow-100/underwater-objects-5v7p8/1
 https://app.roboflow.com/roboflow-100/peixos-fish/3
-=======
-https://app.roboflow.com/roboflow-100/aerial-pool/1
-https://app.roboflow.com/roboflow-100/underwater-objects-5v7p8/1
-https://app.roboflow.com/roboflow-100/peixos-fish/1
->>>>>>> main:url_list.txt
 https://app.roboflow.com/roboflow-100/underwater-pipes-4ng4t/1
 https://app.roboflow.com/roboflow-100/signatures-xc8up/1
 https://app.roboflow.com/roboflow-100/activity-diagrams-qdobr/1
@@ -91,26 +70,15 @@ https://app.roboflow.com/roboflow-100/csgo-videogame/1
 https://app.roboflow.com/roboflow-100/farcry6-videogame/1
 https://app.roboflow.com/roboflow-100/apex-videogame/1
 https://app.roboflow.com/roboflow-100/cables-nl42k/1
-<<<<<<< HEAD:datasets_links_640.txt
 https://app.roboflow.com/roboflow-100/circuit-elements/3
 https://app.roboflow.com/roboflow-100/washroom-rf1fa/1
 https://app.roboflow.com/roboflow-100/construction-safety-gsnvb/1
 https://app.roboflow.com/roboflow-100/street-work/3
-=======
-https://app.roboflow.com/roboflow-100/circuit-elements/1
-https://app.roboflow.com/roboflow-100/washroom-rf1fa/1
-https://app.roboflow.com/roboflow-100/construction-safety-gsnvb/1
-https://app.roboflow.com/roboflow-100/street-work/1
->>>>>>> main:url_list.txt
 https://app.roboflow.com/roboflow-100/excavators-czvg9/1
 https://app.roboflow.com/roboflow-100/corrosion-bi3q3/1
 https://app.roboflow.com/roboflow-100/solar-panels-taxvb/1
 https://app.roboflow.com/roboflow-100/animals-ij5d2/1
-<<<<<<< HEAD:datasets_links_640.txt
 https://app.roboflow.com/roboflow-100/valentines-chocolate/3
-=======
-https://app.roboflow.com/roboflow-100/valentines-chocolate/1
->>>>>>> main:url_list.txt
 https://app.roboflow.com/roboflow-100/sign-language-sokdr/1
 https://app.roboflow.com/roboflow-100/halo-infinite-angel-videogame/1
 https://app.roboflow.com/roboflow-100/aquarium-qlnqy/1
@@ -125,11 +93,7 @@ https://app.roboflow.com/roboflow-100/smoke-uvylj/1
 https://app.roboflow.com/roboflow-100/road-signs-6ih4y/1
 https://app.roboflow.com/roboflow-100/soccer-players-5fuqs/1
 https://app.roboflow.com/roboflow-100/hand-gestures-jps7z/1
-<<<<<<< HEAD:datasets_links_640.txt
 https://app.roboflow.com/roboflow-100/paper-parts/3
-=======
-https://app.roboflow.com/roboflow-100/paper-parts/1
->>>>>>> main:url_list.txt
 https://app.roboflow.com/roboflow-100/cloud-types/1
 https://app.roboflow.com/roboflow-100/tabular-data-wf9uh/1
 https://app.roboflow.com/roboflow-100/paragraphs-co84b/1
