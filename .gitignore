@@ -1,3 +1,6 @@
+*.pk
+*.pkl
+*.png
 rf100/
 runs/
 yolov5-benchmark/attributes.txt
