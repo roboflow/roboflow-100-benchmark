@@ -53,7 +53,7 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f'Storing {args["project"] } in {out_dir} for {args["model_format"]}')
     # get and download the dataset
-    rf = Roboflow(api_key=api_key)  # change this to parameter
+    rf = Roboflow(api_key=api_key)
     project = rf.workspace("roboflow-100").project(args["project"])
     project.version(args["version"]).download(
         args["model_format"], location=str(out_dir)
