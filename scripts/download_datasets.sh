@@ -21,9 +21,10 @@ do
      
     project=$(echo $attributes | cut -d' ' -f 3)
     version=$(echo $attributes | cut -d' ' -f 4)
-
-    python3 $(pwd)/scripts/download_dataset.py -p $project -v $version -l $location -f $format
-
+    if [ ! -d  "$location/$project" ] ;
+    then
+        python3 $(pwd)/scripts/download_dataset.py -p $project -v $version -l $location -f $format
+    fi
 done
 
 echo "Done!"
