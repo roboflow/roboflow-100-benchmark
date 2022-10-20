@@ -4,19 +4,22 @@ This script merge the model's results in one single csv fie
 import pandas as pd
 
 yolov5_df = pd.read_csv(
-    "/home/ubuntu/jacob/roboflow-100-benchmark/yolov5-benchmark/final_eval.txt",
+    "./yolov5-benchmark/final_eval.txt",
     sep=" ",
     index_col=0,
+    header=None,
+    names=["dataset", "yolov5"],
 )
 yolov7_df = pd.read_csv(
-    "/home/ubuntu/jacob/roboflow-100-benchmark/yolov7-benchmark/final_eval.txt",
+    "./yolov7-benchmark/final_eval.txt",
     sep=" ",
     index_col=0,
+    header=None,
+    names=["dataset", "yolov7"],
 )
 
 df = yolov5_df.join(yolov7_df)
-print(df)
-
-df = df.reset_index()
-df.columns = ["name", "yolov5", "yolov7"]
-df.to_csv("./results.csv", index=None)
+# let's add glip as well!
+glip_df = pd.read_csv("./metadata/results_glip.csv", index_col=0)
+df = df.join(glip_df)
+df.to_csv("./results.csv")
