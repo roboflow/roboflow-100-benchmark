@@ -1,0 +1,132 @@
+# REAL WORLD
+-- indoor
+washroom-rf1fa
+furniture-ngpea
+-- damage
+wall-damage
+corrosion-bi3q3
+cable-damage
+-- vehicles
+excavators-czvg9
+road-traffic
+truck-movement
+vehicles-q0x2v
+-- safety
+smoke-uvylj
+road-signs-6ih4y
+street-work
+construction-safety-gsnvb
+mask-wearing-608pr
+gauge-u2lwv
+-- electronic -
+circuit-elements
+cables-nl42k
+printed-circuit-board
+circuit-voltages
+-- animals
+animals-ij5d2
+trail-camera
+---- fish
+fish-market-ggjso
+shark-teeth-5atku
+---- insects
+pests-2xlvx
+insects-mytwu
+bees-jt5in
+-- plants
+leaf-disease-nsdsr
+cotton-20xz5
+apples-fvpl5
+grass-weeds
+lettuce-pallets
+-- geology
+sedimentary-features
+-- boardgames
+chess-pieces-mjzgj
+poker-cards-cxcvz
+uno-deck
+-- human activities
+sign-language-sokdr
+hand-gestures-jps7z
+-- others
+soda-bottles
+wine-labels
+digits-t2eg6
+valentines-chocolate
+peanuts-sd4kf
+cavity-rs0uf
+marbles
+pills-sxdht
+number-ops
+coins-1apki
+currency-v4f8j
+people-in-paintings
+cell-towers
+
+# VIDEOGAMES
+farcry6-videogame
+csgo-videogame
+avatar-recognition-nuexe
+halo-infinite-angel-videogame
+team-fight-tactics (leage of legends)
+robomasters-285km (robots)
+
+# DOCUMENTS
+-- social media
+tweeter-posts
+tweeter-profile
+-- structured
+document-parts
+activity-diagrams-qdobr
+signatures-xc8up
+paper-parts
+tabular-data-wf9uh
+paragraphs-co84b
+
+# UNDERWATER
+aquarium-qlnqy
+peixos-fish
+underwater-objects-5v7p8
+coral-lwptl
+
+# AERIAL
+-- space
+secondary-chains
+cloud-types
+-- static cameras
+aerial-spheres
+soccer-players-5fuqs
+weed-crop-aerial
+-- drones
+aerial-cows
+
+# MICROSCOPIC
+-- human
+stomata-cells
+bccd-ouzjz
+parasites-1s07h
+cells-uyemf
+4-fold-defect
+bacteria-ptywi 
+mitosis-gjs3g
+phages
+liver-disease
+-- plants
+cotton-plant-disease
+-- non living
+asbestos
+
+# ELECTROMAGNETIC
+-- night vision camera
+flir-camera-objects
+-- thermal camera
+thermal-cheetah-my4dp
+-- x-ray
+x-ray-rheumatology
+acl-x-ray
+bone-fracture-7fylg
+-- mri
+abdomen-mri
+axial-mri
+gynecology-mri
+brain-tumor-m2pbp
