@@ -2,18 +2,18 @@ import numpy as np
 from pickle import load, dump
 from pathlib import Path
 from tqdm import tqdm
-from scipy.cluster.vq import vq
 import torch
 from torchvision.utils import make_grid
 import torchvision.transforms as T
 from torchvision.transforms.functional import to_pil_image
-
+import pandas as pd
 from PIL import Image
 from multiprocessing import Pool
 
 from kmeans import kmeans
 
 NUM_CLUSTERS = 32 * 56
+
 
 def get_data(root: Path):
     for encode_path in tqdm(list(root.glob("*.pk"))):
@@ -29,17 +29,19 @@ def get_data(root: Path):
 
     return data
 
+
 def pca(x, k, center=True):
     if center:
         m = x.mean(0, keepdim=True)
         s = x.std(0, unbiased=False, keepdim=True)
         x -= m
         x /= s
-    # why pca related to svd? https://www.cs.cmu.edu/~elaw/papers/pca.pdf chap VI   
+    # why pca related to svd? https://www.cs.cmu.edu/~elaw/papers/pca.pdf chap VI
     U, S, V = torch.linalg.svd(x)
     reduced = torch.mm(x, V[:k].T)
 
     return reduced
+
 
 transform = T.Compose([T.Resize((128, 128)), T.ToTensor()])
 
@@ -68,7 +70,7 @@ x = pca(x, k=32)
 means, bins = kmeans(x, num_clusters=NUM_CLUSTERS, num_iters=25)
 
 # save to disk
-kmeans_outfile_name = f"./torch-kmeans_num-clusters={NUM_CLUSTERS}-pca=32.pk"
+kmeans_outfile_name = f"../temp/torch-kmeans_num-clusters={NUM_CLUSTERS}-pca=32.pk"
 with open(kmeans_outfile_name, "wb") as f:
     dump(means, f)
 

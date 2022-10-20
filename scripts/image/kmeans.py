@@ -33,7 +33,6 @@ def kmeans(samples, num_clusters, num_iters=10, use_cosine_sim=False):
             )
             dists = -(diffs**2).sum(dim=-1)
 
-        print(f"[{i}] dists={dists.mean().item():.4f}")
         buckets = dists.max(dim=-1).indices
         bins = torch.bincount(buckets, minlength=num_clusters)
         zero_mask = bins == 0

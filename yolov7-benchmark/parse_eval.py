@@ -6,7 +6,9 @@ import yaml
 ap = argparse.ArgumentParser()
 
 ap.add_argument("-i", "--input", required=True, help="Input file to parse")
-ap.add_argument("-l", "--location", required=True, help="Dataset location (where data.yaml is)")
+ap.add_argument(
+    "-l", "--location", required=True, help="Dataset location (where data.yaml is)"
+)
 ap.add_argument("-o", "--output", required=True, help="Output file to write")
 
 args = vars(ap.parse_args())
@@ -71,6 +73,6 @@ else:
 res = location, ": ", map_val
 
 
-with open(args['output'], "a") as f:
+with open(args["output"], "a") as f:
     f.write("".join(res))
     f.write("\n")

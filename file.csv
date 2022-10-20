@@ -1,0 +1,98 @@
+Smoke, 1, 7, 522, 148, 76, 0.951, 0.953, 0.431, https://app.roboflow.com/roboflow-100/smoke-uvylj/1
+Wall Damage, 3, -1, 325, 96, 40, 0.331, 0.037, 0.093, https://app.roboflow.com/roboflow-100/damage-bah7a/1
+Corrosion, 3, 186, 840, 304, 105, 0.786, 0.71, 0.003, https://app.roboflow.com/roboflow-100/corrosion-bi3q3/1
+Excavators, 3, 0, 2244, 267, 144, 0.919, 0.921, 0.274, https://app.roboflow.com/roboflow-100/excavators-czvg9/1
+Chess Pieces, 13, -1, 202, 58, 29, 0.987, 0.987, 0.017, https://app.roboflow.com/roboflow-100/chess-pieces-mjzgj/1
+Road Signs, 21, 0, 1376, 488, 229, 0.956, 0.966, 0.036, https://app.roboflow.com/roboflow-100/road-signs-6ih4y/1
+Street Work, 11, 2, 611, 175, 87, 0.492, 0.531, 0.148, https://app.roboflow.com/roboflow-100/street-work/1
+Construction Safety, 5, 505, 997, 119, 90, 0.894, 0.885, 0.259, https://app.roboflow.com/roboflow-100/construction-safety-gsnvb/1
+Road Traffic, 12, 816, 494, 187, 133, 0.604, 0.634, 0.147, https://app.roboflow.com/roboflow-100/vehicles-80lt0/1
+Washroom, 10, 449, 1885, 775, 318, 0.616, 0.636, 0.146, https://app.roboflow.com/roboflow-100/washroom-rf1fa/1
+Circuit Elements, 46, 311, 672, 64, 36, 0.051,-1, 0.001, https://app.roboflow.com/roboflow-100/circuit-elements/1
+Mask Wearing, 2, -1, 105, 29, 15, 0.834, 0.919, 0.008, https://app.roboflow.com/roboflow-100/mask-wearing-608pr/1
+Cables, 11, -1 , 4816, 1220, 794, 0.697, 0.706, 0.01, https://app.roboflow.com/roboflow-100/cables-nl42k/1
+Soda Bottles, 6, 243, 1547, 486, 216, 0.958,-1, 0.098, https://app.roboflow.com/roboflow-100/soda-bottles/1
+Truck Movement, 7, 282, 740, 215, 107, 0.807, 0.844, 0.007, https://app.roboflow.com/roboflow-100/truck-movement/1
+Wine Labels, 12, 249, 3172, 841, 630, 0.607, 0.679, 0.045, https://app.roboflow.com/roboflow-100/wine-labels/1
+Digits, 10, 144, 2912, 824, 367, 0.986, 0.987, 0.003, https://app.roboflow.com/roboflow-100/digits-t2eg6/1
+Vehicles, 12, 1121, 2634, 966, 458, 0.461, 0.475, 0.029, https://app.roboflow.com/roboflow-100/vehicles-q0x2v/1
+Peanuts, 2, 212, 268, 77, 42, 0.995, 0.997, 0.358, https://app.roboflow.com/roboflow-100/peanuts-sd4kf/1
+Printed Circuit Board, 34, 311, 548, 80, 44, 0.25,-1, 0, https://app.roboflow.com/roboflow-100/printed-circuit-board/1
+Pests, 28, 188, 509, 153, 55, 0.211, 0.002, 0.004, https://app.roboflow.com/roboflow-100/pests-2xlvx/1
+Cavity, 2, 165, 287, 93, 38, 0.755, 0.783, 0.029, https://app.roboflow.com/roboflow-100/cavity-rs0uf/1
+Leaf Disease, 3, 143, 1589, 616, 296, 0.524,-1, 0.027, https://app.roboflow.com/roboflow-100/leaf-disease-nsdsr/1
+Marbles, 2, 133 , 54, 19, 32, 0.995, 0.99, 0.03, https://app.roboflow.com/roboflow-100/marbles/1
+Pills, 8, -1, 316, 90, 45, 0.983, 0.948, 0.194, https://app.roboflow.com/roboflow-100/pills-sxdht/1
+Poker Cards, 53, -1, 964, 193, 128, 0.995, 0.994,-1, https://app.roboflow.com/roboflow-100/poker-cards-cxcvz/1
+Number Ops, 15, 28, 4869, 1636, 623, 0.991, 0.991, 0.055, https://app.roboflow.com/roboflow-100/number-ops/1
+Insects, 10, 0, 696, 199, 100, 0.855, 0.798, 0.024, https://app.roboflow.com/roboflow-100//insects-mytwu/1
+Cotton, 4, 17, 367, 19, 20, 0.534, 0.539, 0.157, https://app.roboflow.com/roboflow-100/cotton-20xz5/1
+Furniture, 3, -1, 454, 161, 74, 0.981, 0.522, 0.836, https://app.roboflow.com/roboflow-100/furniture-ngpea/1
+Cable Damage, 2, 2, 919, 256, 134, 0.904, 0.838, 0.006, https://app.roboflow.com/roboflow-100/cable-damage/1
+Animals, 10, 12, 700, 200, 100, 0.76, 0.0813, 0.249, https://app.roboflow.com/roboflow-100/animals-ij5d2/1
+Coins, 4, -1, 6121, 1599, 699, 0.945, 0.985, 0.175, https://app.roboflow.com/roboflow-100//coins-1apki/1
+Apples, 2, 0, 489, 178, 30, 0.775, 0.798, 0.271, https://app.roboflow.com/roboflow-100/apples-fvpl/1
+People in Paintings, 1, 5, 634, 194, 81, 0.548, 0.657, 0.168, https://app.roboflow.com/roboflow-100/people-in-paintings/1
+Circuit Voltage, 6, 11, 92, 25, 15, 0.794, 0.343, 0.009, https://app.roboflow.com/roboflow-100/circuit-voltages/1
+Uno Deck, 15, -1, 6295, 1798, 899, 0.994, 0.994, 0.013, https://app.roboflow.com/roboflow-100/uno-deck/1
+Grass Weeds, 1, 105, 1661, 580, 245, 0.787, 0.786, 0.106, https://app.roboflow.com/roboflow-100/grass-weeds/1
+Gauge, 3, 141, 158, 52, 25, 0.615, 0.707, 0.217, https://app.roboflow.com/roboflow-100/gauge-u2lwv/1
+Sign Language, 26, 0, 504, 144, 72, 0.95, 0.893, 0.006, https://app.roboflow.com/roboflow-100/sign-language-sokdr/1
+Valentines Chocolate, 22, 4, 45, 24, 18, 0.927, 0.237, 0.013, https://app.roboflow.com/roboflow-100/valentines-chocolate/1
+Fish Market, 21, 252, 13362, 3558, 1811, 0.909,-1, 0.013, https://app.roboflow.com/roboflow-100/fish-market-ggjso/1
+Lettuce Pallets, 5, 168, 1060, 299, 151, 0.946, 0.95, 0.031, https://app.roboflow.com/roboflow-100/lettuce-pallets/1
+Shark Teeth, 4, 154, 191, 53, 36, 0.951, 0.659, 0.025, https://app.roboflow.com/roboflow-100/shark-teeth-5atku/1
+Bees, 1, 163, 5640, 1604, 836, 0.903, 0.691, 0.009, https://app.roboflow.com/roboflow-100/bees-jt5in/1
+Sedimentary Features, 5, 31, 156, 45, 21, 0.402, 0.43, 0, https://app.roboflow.com/roboflow-100/sedimentary-features-9eosf/1
+Currency, 10, 1, 576, 155, 82, 0.807, 0.518, 0.099, https://app.roboflow.com/roboflow-100/currency-v4f8j/1
+Trail Camera, 5, 4, 1060, 299, 151, 0.96, 0.968, 0.512, https://app.roboflow.com/roboflow-100/trail-camera/1
+Cell Towers, 4, 25, 191, 53, 36, 0.926, 0.809, 0.053, https://app.roboflow.com/roboflow-100/cell-towers/1
+Far Cry 6, 5, 0, 156, 45, 21, 0.763, 0.475, 0.248, https://app.roboflow.com/roboflow-1100/farcry6-1videogame/1
+CSGO, 10, 0, 576, 155, 82, 0.978, 0.439, 0.184, https://app.roboflow.com/roboflow-1100/csgo-1videogame/1
+Avatar Recognition, 1, 3, 225, 59, 30, 0.859, 0.92, 0.367, https://app.roboflow.com/roboflow-1100/avatar-1recognition-1nuexe/1
+Halo Infinite Angel, 4, 4, 462, 136, 71, 0.942, 0.911, 0.173, https://app.roboflow.com/roboflow-1100/halo-1infinite-1angel-1videogame/1
+Team Fight Tactics, 59, 88, 1162, 307, 112 , 0.969, 0.966, 0, https://app.roboflow.com/roboflow-1100/team-1fight-1tactics/1
+Robomasters, 9, 27, 1945, 556, 278, 0.807, 0.735, 0.003, https://app.roboflow.com/roboflow-1100/robomasters-1285km/1
+Underwater Pipes, 1, 316, 5617, 1575, 779, 0.995, 0.995, 0.733, https://app.roboflow.com/roboflow-1100/underwater-1pipes-14ng4t/1
+Aquarium, 7, 0, 448, 127, 63, 0.762, 0.789, 0.195, https://app.roboflow.com/roboflow-1100/aquarium-1qlnqy/1
+Peixos Fish, 12, 0, 821, 261, 118, 0.145, 0.144, 0.004, https://app.roboflow.com/roboflow-1100/peixos-1fish/1
+Underwater Objects, 5, -1, 5320, 1520, 760 , 0.723, 0.572, 0.005, https://app.roboflow.com/roboflow-1100/underwater-1objects-15v7p8/1
+Coral, 14, 165, 427, 93, 74, 0.185, 0.19, 0.001, https://app.roboflow.com/roboflow-1100/coral-1lwptl/1
+Stomata Cells, 2, -1, 1482, 414, 209, 0.836, 0.861, 0.012, https://app.roboflow.com/roboflow-1100/stomata-1cells/1
+BCCD, 3, -1, 255, 73, 36, 0.328, 0.905, 0.191, https://app.roboflow.com/roboflow-1100/bccd-1ouzjz/1
+Parasites, 8, 0, 1484, 411, 215, 0.847, 0.879, 0.036, https://app.roboflow.com/roboflow-1100/parasites-11s07h/1
+Cells, 1, 210, 16, 4, 2, 0.821, -1, 0.005, https://app.roboflow.com/roboflow-1100/cells-1uyemf/1
+4 Fold Defect, 1, 279, 503, 134, 33, 0.972, 0.952, 0, https://app.roboflow.com/roboflow-1100/4-1fold-1defect/1
+Bacteria, 1, 472, 30, 10, 10 , 0.722, 0.697, 0, https://app.roboflow.com/roboflow-1100/bacteria-1ptywi/1
+Cotton Plant Disease, 1, 259, 724, 198, 102, 0.195, 0.111, 0, https://app.roboflow.com/roboflow-1100/cotton-1plant-1disease/1
+Mitosis, 1, -1, 213, 61, 30, 0.964, 0.708, 0.001, https://app.roboflow.com/roboflow-1100/mitosis-1gjs3g/1
+Phages, 2, 74, 1155, 164, 103, 0.821, 0.834, 0.002, https://app.roboflow.com/roboflow-1100/phages/1
+Liver Disease, 4, 31, 2782, 794, 400, 0.574, 0.577, 0, https://app.roboflow.com/roboflow-1100/liver-1disease/1
+Asbestos, 4, 126, 932, 266, 133, 0.602, 0.48, 0.007, https://app.roboflow.com/roboflow-1100/asbestos/1
+Aerial Pool, 7, 421, 673, 177, 96, 0.53, 0.562, 0.013, https://app.roboflow.com/roboflow-1100/aerial-1pool/1
+Secondary Chains, 1, 201, 103, 43, 16, 0.328, 0.358, 0, https://app.roboflow.com/roboflow-1100/secondary-1chains/1
+Aerial Spheres, 6, 177, 318, 104, 51, 0.993, 0.993, 0, https://app.roboflow.com/roboflow-1100/aerial-1spheres/1
+Soccer Players, 3, -1, 114, 33, 16, 0.953, 0.561, 0.065, https://app.roboflow.com/roboflow-1100/soccer-1players-15fuqs/1
+Weed Crop Aerial, 2, 0, 823, 235, 118, 0.789, 0.487, 0.027, https://app.roboflow.com/roboflow-1100/weed-1crop-1aerial/1
+Aerial Cows, 1, 179, 1084, 340, 299 , 0.88, 0.548, 0.056, https://app.roboflow.com/roboflow-1100/aerial-1cows/1
+Cloud Types, 4, 0, 3528, 1008, 504, 0.284, 0.283, 0.006, https://app.roboflow.com/roboflow-1100/cloud-1types/1
+Thermal Dogs/People, 2, -1, 142, 41, 20, 0.982, 0.917, 0.47, https://app.roboflow.com/roboflow-1100/ thermal-1dogs-1and-1people-1x6ejw/1
+Solar Panels, 5, 175, 112, 30, 19, 0.618, 0.682, 0, https://app.roboflow.com/roboflow-1100/solar-1panels-1taxvb/1
+Radio Signal, 2, -1, 1954, 566, 278, 0.672, -1, 0.066, https://app.roboflow.com/roboflow-1100/radio-1signal/1
+Thermal Cheetah, 2, -1, 90, 25, 14, 0.943, 0.848, 0.028, https://app.roboflow.com/roboflow-1100/thermal-1cheetah-1my4dp/1
+X-1ray Rheumatology, 12, 16, 135, 34, 16, 0.825, 0.868, 0, https://app.roboflow.com/roboflow-1100/x-1ray-1rheumatology/1
+ACL X-1ray, 1, 0, 2141, 612, 306 , 0.995, 0.995, 0, https://app.roboflow.com/roboflow-1100/acl-1x-1ray/1
+Abdomen MRI, 1, 0, 1887, 479, 238, 0.965, 0.947, 0.021, https://app.roboflow.com/roboflow-1100/abdomen-1mri/1
+Axial MRI, 2, -1, 253, 79, 39, 0.618, 0.6, 0.039, https://app.roboflow.com/roboflow-1100/axial-1mri/1
+Gynecology MRI, 3, 7, 2122, 526, 253, 0.269, 0.189, 0, https://app.roboflow.com/roboflow-1100/gynecology-1mri/1
+Brain Tumor, 3, 0, 6930, 1980, 990, 0.796, -1, 0.003, https://app.roboflow.com/roboflow-1100/brain-1tumor-1m2pbp/1
+Bone Fracture, 4, 0, 326, 88, 44, 0.269, 0.0002, 0, https://app.roboflow.com/roboflow-1100/bone-1fracture-17fylg/1
+FLIR Camera Objects, 4, 17, 9306, 2854, 1452, 0.805, 0.826, 0.073, https://app.roboflow.com/roboflow-1100/flir-1camera-1objects/1
+Tweeter Posts, 2, 0, 87, 21, 9, 0.79, 0.889, 0.005, https://app.roboflow.com/roboflow-1100/tweeter-1posts/1
+Tweeter Profile, 1, -1, 425, 121, 61, 0.989, 0.975, 0.002, https://app.roboflow.com/roboflow-1100/tweeter-1profile/1
+Document Parts, 2, 192, 906, 318, 150, 0.691, 0.694, 0.033, https://app.roboflow.com/roboflow-1100/document-1parts/1
+Activity Diagrams, 19, 192, 259, 74, 45, 0.624, 0.682, 0.002, https://app.roboflow.com/roboflow-1100/activity-1diagrams-1qdobr/1
+Signatures, 1, 0, 257, 74, 37, 0.943, 0.916, 0.082, https://app.roboflow.com/roboflow-1100/signatures-1xc8up/1
+Paper Parts, 46, 211, 8472, 2359, 1209, 0.617, 0.614, 0.007, https://app.roboflow.com/roboflow-1100/paper-1parts/1
+Tabular Data, 12, 271, 3866, 409, 206 , 0.76, 0.785, 0.018, https://app.roboflow.com/roboflow-1100/tabular-1data-1wf9uh/1
+Paragraphs, 7, 228, 4209, 1221, 633, 0.608, 0.589, 0, https://app.roboflow.com/roboflow-1100/paragraphs-1co84b/1Roboflow 
