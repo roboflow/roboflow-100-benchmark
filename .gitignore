@@ -1,6 +1,5 @@
 *.pk
 *.pkl
-*.png
 temp/
 rf100/
 runs/
