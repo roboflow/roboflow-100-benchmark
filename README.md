@@ -141,16 +141,3 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -v ${PWD}/datasets_links_640.txt:/workspace/datasets_links_640.txt \
     rf100-benchmark ./GLIP-benchmark/train.sh
 ```
-
-<!-- -u $(id -u ${USER}):$(id -g ${USER}) \ -->
-
-<!-- **TODO**
-
-
-nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
-    -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    -v /etc/group:/etc/group:ro \
-    -v ${PWD}/runs:/workspace/runs \
-    -v ${PWD}/GLIP-benchmark/train.sh:/workspace/GLIP-benchmark/train.sh \
-    rf100-benchmark -->
