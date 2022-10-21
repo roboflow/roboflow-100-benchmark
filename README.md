@@ -10,6 +10,8 @@ datasets.
 
 **TODO** create a table
 
+We provide a [notebook to help you using RF100 with PyTorch](/notebooks/roboflow-100-pytorch.ipynb)
+
 ## Getting Started
 
 First, clone this repo and go inside it.
@@ -49,8 +51,6 @@ Be sure to have the `ROBOFLOW_API_KEY` in your env, then run it
 ```bash
 docker run --rm -it \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
-    -v /etc/group:/etc/group:ro \
-    -u "$(id -u):$(id -g)" \
     -v $(pwd)/rf100:/workspace/rf100 \
     rf100-download
 ```
