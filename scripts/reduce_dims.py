@@ -25,7 +25,6 @@ def get_data(root: Path) -> dict:
 
 
 def encode_with_pca(data: dict, k: int) -> dict:
-    print(data["x"].shape)
     x = torch.from_numpy(data["x"]).float()
     x = pca(x, k=k)
     data["x"] = x.cpu().numpy()
@@ -33,21 +32,22 @@ def encode_with_pca(data: dict, k: int) -> dict:
 
 
 def encode_with(data: dict, method: str, k: int) -> dict:
-    x = data['x']
     if method == "pca":
         data = encode_with_pca(data, k)
     elif method == "tsne":
-        model = TSNE(n_components=k, random_state=0)
+        data = encode_with_pca(data, 50)
+        model = TSNE(n_components=k, random_state=0, init="pca")
         np.set_printoptions(suppress=True)
-        fit_model = model.fit_transform(x)
+        data["x"] = model.fit_transform(data["x"])
     else:
         raise ValueError(f"{method} not known.")
-
     return data
 
 
 def reduce_dims(input_dir: Path, output_dir: Path, method: str, k: int):
+    print("Loading data ...")
     data = get_data(input_dir)
+    print(f"Encoding with method={method} k={k}")
     data = encode_with(data, method, k)
     print(f"data shape = {data['x'].shape}")
     with (output_dir / f"reduced-{method}-k={k}.pk").open("wb") as f:
@@ -59,15 +59,18 @@ if __name__ == "__main__":
 
     parser = ArgumentParser()
 
-    parser.add_argument("-i", type=Path, default=Path("./rf100/"), help="RF100 dir.")
     parser.add_argument(
-        "-o", type=Path, default=Path("./temp/rf100/embeddings"), help="output dir."
+        "-i",
+        type=Path,
+        default=Path("./rf100-temp/ "),
+        help="Where the embeddings pickle file are.",
     )
+    parser.add_argument("-o", type=Path, default=Path("."), help="output dir.")
     parser.add_argument(
         "-k", type=int, default=3, help="number of dimensions, defaults to 3."
     )
     parser.add_argument(
-        "-method", type=str, default="pca", help="type of method, for now only PCA"
+        "-tmethod", type=str, default="pca", help="type of method, for now only PCA"
     )
 
     args = parser.parse_args()

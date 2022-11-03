@@ -1,5 +1,6 @@
 .vscode/
 montages/
+paper/*=
 *.zip
 *.pk
 *.pkl
