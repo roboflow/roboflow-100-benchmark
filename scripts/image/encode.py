@@ -16,7 +16,7 @@ from tqdm import tqdm
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-model, preprocess = clip.load("ViT-B/32", device=device, jit=True)
+model, preprocess = clip.load("ViT-L/14", device=device, jit=True)
 
 
 class ImageDataset(Dataset):
@@ -34,16 +34,33 @@ class ImageDataset(Dataset):
 
 
 if __name__ == "__main__":
-    MAX_BATCHES = 4
 
-    datasets_dir = Path("./rf100/")
-    encoded_dir = Path("./temp/embeddings")
-    encoded_dir.mkdir(exist_ok=True, parents=True)
+    from argparse import ArgumentParser
 
-    for dataset_path in tqdm(list(datasets_dir.glob("*/"))):
+    parser = ArgumentParser()
+
+    parser.add_argument(
+        "--batches",
+        type=int,
+        default=4,
+        help="max amout of batches per datasets, default to 4.",
+    )
+    parser.add_argument("-i", type=Path, default=Path("./rf100/"), help="RF100 dir.")
+    parser.add_argument(
+        "-o", type=Path, default=Path("./temp/rf100/embeddings"), help="output dir."
+    )
+
+    args = parser.parse_args()
+
+    MAX_BATCHES, input_dir, output_dir = args.batches, args.i, args.o
+
+    output_dir: Path = output_dir
+    output_dir.mkdir(exist_ok=True, parents=True)
+
+    for dataset_path in tqdm(list(input_dir.glob("*/"))):
         ds = ImageDataset(dataset_path / "train/images", transform=preprocess)
         dl = DataLoader(
-            ds, batch_size=128, num_workers=1, pin_memory=True, shuffle=True
+            ds, batch_size=128, num_workers=8, pin_memory=True, shuffle=True
         )  # we shuffle and we sample 2 batches per dataset
         i = 0
         for (x, indxs, images_paths) in dl:
@@ -53,7 +70,7 @@ if __name__ == "__main__":
                 x = x.cpu().numpy()
                 encoded_file_name = f"{dataset_path.stem}_{i}.pk"
 
-                with open(Path(encoded_dir) / encoded_file_name, "wb") as f:
+                with open(Path(output_dir) / encoded_file_name, "wb") as f:
                     dump(
                         {
                             "x": x,
