@@ -1,4 +1,4 @@
-# Roboflow 100: A Rich, Multi-Task Object Detection Benchmark
+# Roboflow 100 📸: A Rich, Multi-Task Object Detection Benchmark
 
 ![alt](/paper/images/grid/rf100.png)
 
