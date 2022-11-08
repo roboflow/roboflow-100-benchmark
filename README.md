@@ -1,7 +1,5 @@
 # Roboflow 100 📸: A Rich, Multi-Task Object Detection Benchmark
 
-![alt](/paper/images/grid/rf100.png)
-
 This repository implements the Roboflow 100 benchmark developed by [Roboflow](https://roboflow.com/). It contains code to download the dataset and reproduce
 mAP values for YOLOv5 and YOLOv7 Fine-Tuning and GLIP Evaluation on 100 of Roboflow Universe
 datasets.
