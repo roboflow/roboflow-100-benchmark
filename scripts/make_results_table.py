@@ -9,6 +9,7 @@ This script create the result table in the paper.
 from pathlib import Path
 from textwrap import indent
 from unicodedata import name
+
 import pandas as pd
 
 RF100_BASE_URL = "https://app.roboflow.com/roboflow-100"

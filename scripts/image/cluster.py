@@ -1,16 +1,16 @@
-import numpy as np
-from pickle import load, dump
-from pathlib import Path
-from tqdm import tqdm
-import torch
-from torchvision.utils import make_grid
-import torchvision.transforms as T
-from torchvision.transforms.functional import to_pil_image
-import pandas as pd
-from PIL import Image
 from multiprocessing import Pool
+from pathlib import Path
+from pickle import dump, load
 
+import numpy as np
+import pandas as pd
+import torch
+import torchvision.transforms as T
 from kmeans import kmeans
+from PIL import Image
+from torchvision.transforms.functional import to_pil_image
+from torchvision.utils import make_grid
+from tqdm import tqdm
 
 NUM_CLUSTERS = 32 * 56
 

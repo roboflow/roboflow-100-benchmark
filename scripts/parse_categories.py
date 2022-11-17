@@ -1,10 +1,11 @@
 """
 This script takes a file text (lost in time) and outputs a correctly formated csv file with category -> dataset
 """
+import re
 from argparse import ArgumentParser
 from pathlib import Path
+
 import pandas as pd
-import re
 
 parser = ArgumentParser()
 parser.add_argument("-i", "--input", type=Path)

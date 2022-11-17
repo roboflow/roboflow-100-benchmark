@@ -1,9 +1,10 @@
 import os
-import requests
 from concurrent.futures import ThreadPoolExecutor
-import pandas as pd
-from tqdm import tqdm
 from pprint import pprint
+
+import pandas as pd
+import requests
+from tqdm import tqdm
 
 ROBOFLOW_API_KEY = os.environ["ROBOFLOW_API_KEY"]
 API_URL = "https://api.roboflow.com/roboflow-100"
