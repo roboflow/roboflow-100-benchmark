@@ -24,7 +24,7 @@ datasets.
 | **Total**           | **100**      | **224,714** | **805**     |
 
 
-Head over the [Appendix](#appendix) at the bottom to see samples from each dataset
+🚨 **Head over the [Appendix](#appendix) at the bottom to see samples from each dataset**
 
 We provide a [notebook to help you using RF100 with PyTorch](/notebooks/roboflow-100-pytorch.ipynb)
 
