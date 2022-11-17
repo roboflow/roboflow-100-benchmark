@@ -2,14 +2,15 @@
 This script will split the reduced-* pickle file into folders with the right dimension and metadata for the collage.
 """
 
-from pathlib import Path
-from typing import Iterable, Tuple, List
-from tqdm import tqdm
-from pickle import load, dump
-import numpy as np
-from concurrent.futures import ThreadPoolExecutor
-from PIL import Image
 import json
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from pickle import dump, load
+from typing import Iterable, List, Tuple
+
+import numpy as np
+from PIL import Image
+from tqdm import tqdm
 
 """
 1) read the data
@@ -90,7 +91,7 @@ def get_data_chunks(
 
 def make_split(
     data: dict, output_dir: Path, montage_size: str, image_size: str, *args, **kwargs
-):  
+):
     """
     Takes `data`, writes to disk all the images and the embeddings in json format
     """
@@ -111,7 +112,6 @@ def make_split(
                 total=data["x"].shape[0] // chunk_size,
             )
         )
-
 
 
 def make_splits_by_dataset(

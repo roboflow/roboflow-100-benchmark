@@ -1,17 +1,17 @@
 # read images from rf100
 # encode them with clip
 
-from typing import Callable, Optional
-import torch
-import clip
-from PIL import Image
 from pathlib import Path
-import torch as nn
-from torch.utils.data import Dataset, DataLoader
-from PIL import Image
-import numpy as np
-from torchvision.transforms import ToTensor
 from pickle import dump
+from typing import Callable, Optional
+
+import clip
+import numpy as np
+import torch
+import torch as nn
+from PIL import Image
+from torch.utils.data import DataLoader, Dataset
+from torchvision.transforms import ToTensor
 from tqdm import tqdm
 
 device = "cuda" if torch.cuda.is_available() else "cpu"

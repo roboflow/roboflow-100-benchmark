@@ -1,8 +1,9 @@
 """
 Poor man script to convert the table from an old version of the paper. This was the only way since we didn't have access to the original data source from the table
 """
-from pathlib import Path
 from argparse import ArgumentParser
+from pathlib import Path
+
 import pandas as pd
 
 parser = ArgumentParser()

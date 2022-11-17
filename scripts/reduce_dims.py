@@ -1,12 +1,12 @@
-from typing import Dict, Iterator, Tuple, List
-from image.pca import pca
 from pathlib import Path
-from tqdm import tqdm
-from pickle import load, dump
+from pickle import dump, load
+from typing import Dict, Iterator, List, Tuple
+
 import numpy as np
 import torch
-
+from image.pca import pca
 from sklearn.manifold import TSNE
+from tqdm import tqdm
 
 
 def get_data(root: Path) -> dict:
