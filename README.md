@@ -2,13 +2,24 @@
 
 ![rf100blog-mosaicthing](https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg)
 
+| Category        | Datasets | Images  | Classes |
+|-----------------|----------|---------|---------|
+| Aerial          | 7        | 9683    | 24      |
+| Videogames      | 7        | 11579   | 88      |
+| Microscopic     | 11       | 13378   | 28      |
+| Underwater      | 5        | 18003   | 39      |
+| Documents       | 8        | 24813   | 90      |
+| Electromagnetic | 12       | 36381   | 41      |
+| Real World      | 50       | 110615  | 495     |
+| Total           | 100      | 224,714 | 805     |
+
 This repository implements the Roboflow 100 benchmark developed by [Roboflow](https://roboflow.com/). It contains code to download the dataset and reproduce
 mAP values for YOLOv5 and YOLOv7 Fine-Tuning and GLIP Evaluation on 100 of Roboflow Universe
 datasets.
 
 ## RF100
 
-`RF100` contains the following datasets, carefully chosen from more than 90'000 datasets hosted on our [universe hub](https://universe.roboflow.com/).
+`RF100` contains the following datasets, carefully chosen from more than 90'000 datasets hosted on our [universe hub](https://universe.roboflow.com/). The datasets are splitted in 7 categories: `Aerial`, `Videogames`, `Microscopic`, `Underwater`, `Documents`, `Electromagnetic` and `Real World`.
 
 **TODO** create a table
 
