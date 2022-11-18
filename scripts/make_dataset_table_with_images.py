@@ -29,7 +29,7 @@ def make_grid_from_dataset(dataset_dir: Path, n=5) -> Tuple[str, Image.Image]:
 
 def save(dataset_name: str, grid: Image.Image) -> Tuple[str, str]:
     grid_path = f"doc/images/grid/{dataset_name}.jpg"
-    # grid.save(grid_path, quality=70)
+    grid.save(grid_path, quality=70)
     return dataset_name, grid_path
 
 
@@ -51,6 +51,11 @@ def make_table(root: Path) -> str:
     df = df.set_index("dataset", drop=True)
     df = category_df.join(df)
     del df["category"]
+    df = df.reset_index()
+    df.dataset = df.dataset.apply(
+        lambda x: f"[{x}](https://universe.roboflow.com/roboflow-100/{x})"
+    )
+    df = df.set_index("dataset", drop=True)
     return df.to_markdown()
 
 
