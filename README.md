@@ -1,4 +1,4 @@
-# Roboflow 100 📸: A Rich, Multi-Task Object Detection Benchmark
+# Roboflow 100 📸: A Rich, Multi-Domain Object Detection Benchmark
 
 ![rf100blog-mosaicthing](https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg)
 
