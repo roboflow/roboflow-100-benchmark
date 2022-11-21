@@ -7,6 +7,8 @@ mAP values for YOLOv5 and YOLOv7 Fine-Tuning and GLIP Evaluation on 100 of Robof
 datasets.
 
 
+*RF100 was sponsored by [Intel](https://www.intel.com/content/www/us/en/homepage.html)*
+
 ## RF100
 
 `RF100` contains the following datasets, carefully chosen from more than 90'000 datasets hosted on our [universe hub](https://universe.roboflow.com/). The datasets are splitted in 7 categories: `Aerial`, `Videogames`, `Microscopic`, `Underwater`, `Documents`, `Electromagnetic` and `Real World`. 
