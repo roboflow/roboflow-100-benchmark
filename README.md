@@ -7,7 +7,7 @@ mAP values for YOLOv5 and YOLOv7 Fine-Tuning and GLIP Evaluation on 100 of Robof
 datasets.
 
 
-*RF100 was sponsored by [Intel](https://www.intel.com/content/www/us/en/homepage.html)*
+*RF100 was sponsored with ❤️ by [Intel](https://www.intel.com/content/www/us/en/homepage.html)*
 
 ## RF100
 
