@@ -371,8 +371,4 @@ We thank all the authors of the original datasets, below a table linking the Rob
 | gynecology-mri                | electromagnetic | https://universe.roboflow.com/yuanyuanpei7/5-8w                                                             |
 | brain-tumor-m2pbp             | electromagnetic | https://universe.roboflow.com/yousef-ghanem-jzj4y/brain-tumor-detection-fpf1f                               |
 | bone-fracture-7fylg           | electromagnetic | https://universe.roboflow.com/science-research/science-research-2022:-bone-fracture-detection               |
-<<<<<<< HEAD
 | flir-camera-objects           | electromagnetic | https://universe.roboflow.com/thermal-imaging-0hwfw/flir-data-set                                           |
-=======
-| flir-camera-objects           | electromagnetic | https://universe.roboflow.com/thermal-imaging-0hwfw/flir-data-set                                           |
->>>>>>> 06e998d (fix)
