@@ -50,7 +50,7 @@ def make_table(root: Path) -> str:
     df.samples = df.samples.apply(lambda x: f"![alt]({x})")
     df = df.set_index("dataset", drop=True)
     df = category_df.join(df)
-    del df["category"]
+    # del df["category"]
     df = df.reset_index()
     df.dataset = df.dataset.apply(
         lambda x: f"[{x}](https://universe.roboflow.com/roboflow-100/{x})"
