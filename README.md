@@ -265,3 +265,110 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 | [brain-tumor-m2pbp](https://universe.roboflow.com/roboflow-100/brain-tumor-m2pbp)                         | ![alt](doc/images/grid/brain-tumor-m2pbp.jpg)             |
 | [bone-fracture-7fylg](https://universe.roboflow.com/roboflow-100/bone-fracture-7fylg)                     | ![alt](doc/images/grid/bone-fracture-7fylg.jpg)           |
 | [flir-camera-objects](https://universe.roboflow.com/roboflow-100/flir-camera-objects)                     | ![alt](doc/images/grid/flir-camera-objects.jpg)           |
+
+## Credits
+
+We thank all the authors of the original datasets, below a table linking the Roboflow 100 dataset's name to its original counterpart
+
+| dataset                       | category        | original                                                                                                    |
+|:------------------------------|:----------------|:------------------------------------------------------------------------------------------------------------|
+| hand-gestures-jps7z           | real world      | https://universe.roboflow.com/hand-gestures-recognition/hand-gestures-dataset                               |
+| smoke-uvylj                   | real world      | https://universe.roboflow.com/sigma-pub/smoke-detection-sigma                                               |
+| wall-damage                   | real world      | https://universe.roboflow.com/sina-uyen0/damage_level_detection                                             |
+| corrosion-bi3q3               | real world      | https://universe.roboflow.com/khaingwintz-gmail-com/dataset--2-pathein-train-plus-v-3-update-mm             |
+| excavators-czvg9              | real world      | https://universe.roboflow.com/mohamed-sabek-6zmr6/excavators-cwlh0                                          |
+| chess-pieces-mjzgj            | real world      | https://universe.roboflow.com/joseph-nelson/chess-pieces-new                                                |
+| road-signs-6ih4y              | real world      | https://universe.roboflow.com/project-sign-detection/traffic-sign-cdfml                                     |
+| street-work                   | real world      | https://universe.roboflow.com/cone/capacetes-e-cones                                                        |
+| construction-safety-gsnvb     | real world      | https://universe.roboflow.com/computer-vision/worker-safety                                                 |
+| road-traffic                  | real world      | https://universe.roboflow.com/due/detection-dlzhy                                                           |
+| washroom-rf1fa                | real world      | https://universe.roboflow.com/imagetaggingworkspace/washroom-image-tagging                                  |
+| circuit-elements              | real world      | https://universe.roboflow.com/new-workspace-rzrja/pcb-2.0                                                   |
+| mask-wearing-608pr            | real world      | https://universe.roboflow.com/joseph-nelson/mask-wearing                                                    |
+| cables-nl42k                  | real world      | https://universe.roboflow.com/annotationericsson/annotation-2.0                                             |
+| soda-bottles                  | real world      | https://universe.roboflow.com/food7/test1-iajnv                                                             |
+| truck-movement                | real world      | https://universe.roboflow.com/psi-dhxqe/psi-rossville-pano                                                  |
+| wine-labels                   | real world      | https://universe.roboflow.com/wine-label/wine-label-detection                                               |
+| digits-t2eg6                  | real world      | https://universe.roboflow.com/dmrs/number-1gmaw                                                             |
+| vehicles-q0x2v                | real world      | https://universe.roboflow.com/7-class/11-11-2021-09.41                                                      |
+| peanuts-sd4kf                 | real world      | https://universe.roboflow.com/molds-onbk3/peanuts-mckge/                                                    |
+| printed-circuit-board         | real world      | https://universe.roboflow.com/new-workspace-rzrja/pcb-2.0                                                   |
+| pests-2xlvx                   | real world      | https://universe.roboflow.com/gugugu/pests-f8kkr                                                            |
+| cavity-rs0uf                  | real world      | https://universe.roboflow.com/duong-duc-cuong/cavity-n3ioq                                                  |
+| leaf-disease-nsdsr            | real world      | https://universe.roboflow.com/puri/puri4-ygapu                                                              |
+| marbles                       | real world      | https://universe.roboflow.com/zhe-fan/marble-images                                                         |
+| pills-sxdht                   | real world      | https://universe.roboflow.com/mohamed-attia-e2mor/pill-detection-llp4r                                      |
+| poker-cards-cxcvz             | real world      | https://universe.roboflow.com/roboflow-100/poker-cards-cxcvz                                                |
+| number-ops                    | real world      | https://universe.roboflow.com/mnist-bvalq/mnist-icrul                                                       |
+| insects-mytwu                 | real world      | https://universe.roboflow.com/nirmani/yolo-custome-925                                                      |
+| cotton-20xz5                  | real world      | https://universe.roboflow.com/cotton-nqp2x/bt-cotton                                                        |
+| furniture-ngpea               | real world      | https://universe.roboflow.com/minoj-selvaraj/furniture-sfocl                                                |
+| cable-damage                  | real world      | https://universe.roboflow.com/st-hedgehog-yusupov-gmail-com/kanaaat                                         |
+| animals-ij5d2                 | real world      | https://universe.roboflow.com/dane-sprsiter/barnyard                                                        |
+| coins-1apki                   | real world      | https://universe.roboflow.com/labelimg/label_coin                                                           |
+| apples-fvpl5                  | real world      | https://universe.roboflow.com/arfiani-nur-sayidah-9lizr/apple-sorting-2bfhk                                 |
+| people-in-paintings           | real world      | https://universe.roboflow.com/raya-al/french-paintings-dataset-d2vbe                                        |
+| circuit-voltages              | real world      | https://universe.roboflow.com/vanitchaporn/circuit-gexit                                                    |
+| uno-deck                      | real world      | https://universe.roboflow.com/joseph-nelson/uno-cards                                                       |
+| grass-weeds                   | real world      | https://universe.roboflow.com/jan-douwe/testbl                                                              |
+| gauge-u2lwv                   | real world      | https://universe.roboflow.com/evankim9903-gmail-com/gauge_detection                                         |
+| sign-language-sokdr           | real world      | https://universe.roboflow.com/david-lee-d0rhs/american-sign-language-letters                                |
+| valentines-chocolate          | real world      | https://universe.roboflow.com/chocolates/valentines-chocolates                                              |
+| fish-market-ggjso             | real world      | https://universe.roboflow.com/commolybroken/dataset-z2vab                                                   |
+| lettuce-pallets               | real world      | https://universe.roboflow.com/lettucedetector                                                               |
+| shark-teeth-5atku             | real world      | https://universe.roboflow.com/sharks/shark-taxonomy                                                         |
+| bees-jt5in                    | real world      | https://universe.roboflow.com/jjb-object-detection-projects/bee-detection-pry0w                             |
+| sedimentary-features-9eosf    | real world      | https://universe.roboflow.com/sedimentary-structures/sedimentary-features-rmadz                             |
+| currency-v4f8j                | real world      | https://universe.roboflow.com/alex-hyams-cosqx/cash-counter/                                                |
+| trail-camera                  | real world      | https://universe.roboflow.com/my-game-pics/my-game-pics                                                     |
+| cell-towers                   | real world      | https://universe.roboflow.com/yuyang-li/tower_jointv1                                                       |
+| apex-videogame                | videogames      | https://universe.roboflow.com/apex-esoic/apexyolov4                                                         |
+| farcry6-videogame             | videogames      | https://universe.roboflow.com/kais-al-hajjih/farcry6-hackathon                                              |
+| csgo-videogame                | videogames      | https://universe.roboflow.com/new-workspace-rp0z0/csgo-train-yolo-v5                                        |
+| avatar-recognition-nuexe      | videogames      | https://universe.roboflow.com/new-workspace-0pohs/avatar-recognition-rfw8d                                  |
+| halo-infinite-angel-videogame | videogames      | https://universe.roboflow.com/graham-doerksen/halo-infinite-angel-aim                                       |
+| team-fight-tactics            | videogames      | https://universe.roboflow.com/lamaitw/lama-itw/                                                             |
+| robomasters-285km             | videogames      | https://universe.roboflow.com/etp5501-gmail-com/robomasters-colored                                         |
+| tweeter-posts                 | documents       | https://universe.roboflow.com/tweeter/tweeter                                                               |
+| tweeter-profile               | documents       | https://universe.roboflow.com/wojciech-blachowski/tweets                                                    |
+| document-parts                | documents       | https://universe.roboflow.com/new-workspace-vf0ib/calpers                                                   |
+| activity-diagrams-qdobr       | documents       | https://universe.roboflow.com/public1/activity-diagrams-s7sxv                                               |
+| signatures-xc8up              | documents       | https://universe.roboflow.com/signature-detection/signaturesdetectiob                                       |
+| paper-parts                   | documents       | https://universe.roboflow.com/object-detection-alan-devera/object-detection-ycqjb                           |
+| tabular-data-wf9uh            | documents       | https://universe.roboflow.com/rik-biswas/tabular-data-dh4ek                                                 |
+| paragraphs-co84b              | documents       | https://universe.roboflow.com/new-workspace-4vus5/singlemcq                                                 |
+| underwater-pipes-4ng4t        | underwater      | https://universe.roboflow.com/underwaterpipes/underwater_pipes_orginal_pictures                             |
+| aquarium-qlnqy                | underwater      | https://universe.roboflow.com/brad-dwyer/aquarium-combined                                                  |
+| peixos-fish                   | underwater      | https://universe.roboflow.com/nasca37/peixos3                                                               |
+| underwater-objects-5v7p8      | underwater      | https://universe.roboflow.com/workspace-txxpz/underwater-detection                                          |
+| coral-lwptl                   | underwater      | https://universe.roboflow.com/nikita-manolis-je2ii/coral-growth-form                                        |
+| aerial-pool                   | aerial          | https://universe.roboflow.com/a-s/uwh                                                                       |
+| secondary-chains              | aerial          | https://universe.roboflow.com/cc_moon/secondaries                                                           |
+| aerial-spheres                | aerial          | https://universe.roboflow.com/mevil-crasta/annotating-spheres---11-04                                       |
+| soccer-players-5fuqs          | aerial          | https://universe.roboflow.com/ilyes-talbi-ptwsp/futbol-players                                              |
+| weed-crop-aerial              | aerial          | https://universe.roboflow.com/new-workspace-csmgu/weedcrop-waifl                                            |
+| aerial-cows                   | aerial          | https://universe.roboflow.com/omarkapur-berkeley-edu/livestalk                                              |
+| cloud-types                   | aerial          | https://universe.roboflow.com/research-project/shallow-cloud                                                |
+| stomata-cells                 | microscopic     | https://universe.roboflow.com/new-workspace-fditd/stomata02                                                 |
+| bccd-ouzjz                    | microscopic     | https://universe.roboflow.com/team-roboflow/blood-cell-detection-1ekwu                                      |
+| parasites-1s07h               | microscopic     | https://universe.roboflow.com/graduao/sistema-para-analise-de-ovos-de-parasitas-em-amostra-de-agua-e-sangue |
+| cells-uyemf                   | microscopic     | https://universe.roboflow.com/new-workspace-86q1t/t03-proyecto-celula-dataset-ampliado                      |
+| 4-fold-defect                 | microscopic     | https://universe.roboflow.com/kat-laura/defect-detection-gil85                                              |
+| bacteria-ptywi                | microscopic     | https://universe.roboflow.com/terada-shoma/gram-positive-bacteria                                           |
+| cotton-plant-disease          | microscopic     | https://universe.roboflow.com/quandong-qian/desease-cotton-plant                                            |
+| mitosis-gjs3g                 | microscopic     | https://universe.roboflow.com/20029-tkmce-ac-in/mitosis-dwute                                               |
+| phages                        | microscopic     | https://universe.roboflow.com/danish2562022-gmail-com/microglia_rgb/                                        |
+| liver-disease                 | microscopic     | https://universe.roboflow.com/liver-t5yvf/liver-diseases                                                    |
+| asbestos                      | microscopic     | https://universe.roboflow.com/ahmad-rabiee/asbest91                                                         |
+| thermal-dogs-and-people-x6ejw | electromagnetic | https://universe.roboflow.com/joseph-nelson/thermal-dogs-and-people                                         |
+| solar-panels-taxvb            | electromagnetic | https://universe.roboflow.com/new-workspace-rt1da/solarpaneldetectmodel                                     |
+| radio-signal                  | electromagnetic | https://universe.roboflow.com/danil/                                                                        |
+| thermal-cheetah-my4dp         | electromagnetic | https://universe.roboflow.com/brad-dwyer/thermal-cheetah                                                    |
+| x-ray-rheumatology            | electromagnetic | https://universe.roboflow.com/publictestsite/xray-rheumatology-images-public                                |
+| acl-x-ray                     | electromagnetic | https://universe.roboflow.com/objectdetection-9lu9z/detectron2-acl                                          |
+| abdomen-mri                   | electromagnetic | https://universe.roboflow.com/xinweihe/circle-3train                                                        |
+| axial-mri                     | electromagnetic | https://universe.roboflow.com/tfg-2nmge/axial-dataset                                                       |
+| gynecology-mri                | electromagnetic | https://universe.roboflow.com/yuanyuanpei7/5-8w                                                             |
+| brain-tumor-m2pbp             | electromagnetic | https://universe.roboflow.com/yousef-ghanem-jzj4y/brain-tumor-detection-fpf1f                               |
+| bone-fracture-7fylg           | electromagnetic | https://universe.roboflow.com/science-research/science-research-2022:-bone-fracture-detection               |
+| flir-camera-objects           | electromagnetic | https://universe.roboflow.com/thermal-imaging-0hwfw/flir-data-set                                           |
