@@ -265,6 +265,7 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 | [brain-tumor-m2pbp](https://universe.roboflow.com/roboflow-100/brain-tumor-m2pbp)                         | electromagnetic | ![alt](doc/images/grid/brain-tumor-m2pbp.jpg)             |
 | [bone-fracture-7fylg](https://universe.roboflow.com/roboflow-100/bone-fracture-7fylg)                     | electromagnetic | ![alt](doc/images/grid/bone-fracture-7fylg.jpg)           |
 | [flir-camera-objects](https://universe.roboflow.com/roboflow-100/flir-camera-objects)                     | electromagnetic | ![alt](doc/images/grid/flir-camera-objects.jpg)           |
+
 ## Credits
 
 We thank all the authors of the original datasets, below a table linking the Roboflow 100 dataset's name to its original counterpart
@@ -371,3 +372,4 @@ We thank all the authors of the original datasets, below a table linking the Rob
 | brain-tumor-m2pbp             | https://universe.roboflow.com/yousef-ghanem-jzj4y/brain-tumor-detection-fpf1f                               |
 | bone-fracture-7fylg           | https://universe.roboflow.com/science-research/science-research-2022:-bone-fracture-detection               |
 | flir-camera-objects           | https://universe.roboflow.com/thermal-imaging-0hwfw/flir-data-set                                           |
+
