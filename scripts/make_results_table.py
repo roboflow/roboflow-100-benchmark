@@ -65,13 +65,7 @@ del results["num_datasets"]
 del results["size"]
 labelling_hours_col = results.pop("labelling hours")
 results.insert(4, "labelling hours", labelling_hours_col)
-# # move "name" to beginning
-# name_col = results.pop("name")
-# results.insert(0, "name", name_col)
 print(results.head(5))
-# s = results.style.highlight_max(
-#     props='cellcolor:[HTML]{FFFF00}; color:{red}; itshape:; bfseries:;'
-# )
 # https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.to_latex.html
 table_style = results.style
 table_style.clear()
