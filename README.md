@@ -127,6 +127,13 @@ Then, follow the guide for each model.
 
 All results are stored inside `./runs`.
 
+> **Warning**
+> The run must be uninterrupted otherwise the downloaded datasets may be unfinished or corrupted
+
+> **Warning**
+> If you have `permission denied` errors, you can either remove `runs` with `sudo rm -rf ./runs` or give permissions to everybody `sudo chmod -R +x ./runs`.
+
+
 ### [YOLOv5](https://github.com/ultralytics/yolov5) Fine-Tuning
 
 **Note**, we will map the current folder to the container file system to persist data
@@ -135,8 +142,6 @@ All results are stored inside `./runs`.
 mkdir -p runs &&
 nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
-    -v /etc/group:/etc/group:ro \
-    -u "$(id -u):$(id -g)" \
     -v ${PWD}/runs:/workspace/runs \
     -v ${PWD}/datasets_links_640.txt:/workspace/datasets_links_640.txt \
     rf100-benchmark ./yolov5-benchmark/train.sh
@@ -150,12 +155,11 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 mkdir -p runs &&
 nvidia-docker run --gpus all --rm -d --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
-    -v /etc/group:/etc/group:ro \
-    -u "$(id -u):$(id -g)" \
     -v ${PWD}/runs:/workspace/runs \
     -v ${PWD}/datasets_links_640.txt:/workspace/datasets_links_640.txt \
     rf100-benchmark ./yolov7-benchmark/train.sh
 ```
+
 
 ### [GLIP](https://github.com/microsoft/GLIP)
 
@@ -163,8 +167,6 @@ nvidia-docker run --gpus all --rm -d --ipc host --network host --shm-size 64g \
 mkdir -p runs &&
 nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
-    -v /etc/group:/etc/group:ro \
-    -u "$(id -u):$(id -g)" \
     -v ${PWD}/runs:/workspace/runs \
     -v ${PWD}/datasets_links_640.txt:/workspace/datasets_links_640.txt \
     rf100-benchmark ./GLIP-benchmark/train.sh
