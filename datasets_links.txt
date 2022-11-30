@@ -1,14 +1,8 @@
 https://app.roboflow.com/roboflow-100/tweeter-profile/2
 https://app.roboflow.com/roboflow-100/gauge-u2lwv/3
-<<<<<<< HEAD
 https://app.roboflow.com/roboflow-100/road-traffic/4
 https://app.roboflow.com/roboflow-100/wall-damage/2
 https://app.roboflow.com/roboflow-100/fish-market-ggjso/6
-=======
-https://app.roboflow.com/roboflow-100/road-traffic/2
-https://app.roboflow.com/roboflow-100/wall-damage/2
-https://app.roboflow.com/roboflow-100/fish-market-ggjso/4
->>>>>>> main
 https://app.roboflow.com/roboflow-100/soda-bottles/4
 https://app.roboflow.com/roboflow-100/flir-camera-objects/2
 https://app.roboflow.com/roboflow-100/stomata-cells/2
@@ -41,20 +35,12 @@ https://app.roboflow.com/roboflow-100/bone-fracture-7fylg/2
 https://app.roboflow.com/roboflow-100/marbles/3
 https://app.roboflow.com/roboflow-100/cavity-rs0uf/3
 https://app.roboflow.com/roboflow-100/pests-2xlvx/2
-<<<<<<< HEAD
 https://app.roboflow.com/roboflow-100/printed-circuit-board/4
-=======
-https://app.roboflow.com/roboflow-100/printed-circuit-board/2
->>>>>>> main
 https://app.roboflow.com/roboflow-100/peanuts-sd4kf/2
 https://app.roboflow.com/roboflow-100/vehicles-q0x2v/2
 https://app.roboflow.com/roboflow-100/digits-t2eg6/2
 https://app.roboflow.com/roboflow-100/wine-labels/2
-<<<<<<< HEAD
 https://app.roboflow.com/roboflow-100/truck-movement/4
-=======
-https://app.roboflow.com/roboflow-100/truck-movement/2
->>>>>>> main
 https://app.roboflow.com/roboflow-100/coral-lwptl/2
 https://app.roboflow.com/roboflow-100/brain-tumor-m2pbp/2
 https://app.roboflow.com/roboflow-100/cotton-plant-disease/2
@@ -71,15 +57,9 @@ https://app.roboflow.com/roboflow-100/parasites-1s07h/2
 https://app.roboflow.com/roboflow-100/aerial-cows/2
 https://app.roboflow.com/roboflow-100/aerial-spheres/2
 https://app.roboflow.com/roboflow-100/secondary-chains/2
-<<<<<<< HEAD
 https://app.roboflow.com/roboflow-100/aerial-pool/4
 https://app.roboflow.com/roboflow-100/underwater-objects-5v7p8/2
 https://app.roboflow.com/roboflow-100/peixos-fish/4
-=======
-https://app.roboflow.com/roboflow-100/aerial-pool/2
-https://app.roboflow.com/roboflow-100/underwater-objects-5v7p8/2
-https://app.roboflow.com/roboflow-100/peixos-fish/2
->>>>>>> main
 https://app.roboflow.com/roboflow-100/underwater-pipes-4ng4t/2
 https://app.roboflow.com/roboflow-100/signatures-xc8up/2
 https://app.roboflow.com/roboflow-100/activity-diagrams-qdobr/2
@@ -90,26 +70,15 @@ https://app.roboflow.com/roboflow-100/csgo-videogame/2
 https://app.roboflow.com/roboflow-100/farcry6-videogame/2
 https://app.roboflow.com/roboflow-100/apex-videogame/2
 https://app.roboflow.com/roboflow-100/cables-nl42k/2
-<<<<<<< HEAD
 https://app.roboflow.com/roboflow-100/circuit-elements/4
 https://app.roboflow.com/roboflow-100/washroom-rf1fa/2
 https://app.roboflow.com/roboflow-100/construction-safety-gsnvb/2
 https://app.roboflow.com/roboflow-100/street-work/4
-=======
-https://app.roboflow.com/roboflow-100/circuit-elements/2
-https://app.roboflow.com/roboflow-100/washroom-rf1fa/2
-https://app.roboflow.com/roboflow-100/construction-safety-gsnvb/2
-https://app.roboflow.com/roboflow-100/street-work/2
->>>>>>> main
 https://app.roboflow.com/roboflow-100/excavators-czvg9/2
 https://app.roboflow.com/roboflow-100/corrosion-bi3q3/2
 https://app.roboflow.com/roboflow-100/solar-panels-taxvb/2
 https://app.roboflow.com/roboflow-100/animals-ij5d2/2
-<<<<<<< HEAD
 https://app.roboflow.com/roboflow-100/valentines-chocolate/4
-=======
-https://app.roboflow.com/roboflow-100/valentines-chocolate/2
->>>>>>> main
 https://app.roboflow.com/roboflow-100/sign-language-sokdr/2
 https://app.roboflow.com/roboflow-100/halo-infinite-angel-videogame/2
 https://app.roboflow.com/roboflow-100/aquarium-qlnqy/2
@@ -124,11 +93,7 @@ https://app.roboflow.com/roboflow-100/smoke-uvylj/2
 https://app.roboflow.com/roboflow-100/road-signs-6ih4y/2
 https://app.roboflow.com/roboflow-100/soccer-players-5fuqs/2
 https://app.roboflow.com/roboflow-100/hand-gestures-jps7z/2
-<<<<<<< HEAD
 https://app.roboflow.com/roboflow-100/paper-parts/4
-=======
-https://app.roboflow.com/roboflow-100/paper-parts/2
->>>>>>> main
 https://app.roboflow.com/roboflow-100/cloud-types/2
 https://app.roboflow.com/roboflow-100/tabular-data-wf9uh/2
 https://app.roboflow.com/roboflow-100/paragraphs-co84b/2
