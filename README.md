@@ -58,20 +58,16 @@ The easiest and faster way to download `RF100` is using [docker](https://docs.do
 
 If you have an NVIDIA GPU, be sure to also install [nvidia docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
-First, build the container
-
-```bash
-docker build -t rf100-download -f Dockerfile.rf100.download .
-```
-
 Be sure to have the `ROBOFLOW_API_KEY` in your env, then run it
 
 ```bash
 docker run --rm -it \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v $(pwd)/rf100:/workspace/rf100 \
-    rf100-download
+    roboflow/rf100-download
 ```
+
+`roboflow/rf100-download` is hosted on our [docker hub](https://hub.docker.com/repository/docker/roboflow/rf100-download) 
 
 Internally, `RF100` will downloaded to `/app/rf100`. You can also specify the format with the `-f` flag, by default `coco` is used.
 
@@ -79,8 +75,15 @@ Internally, `RF100` will downloaded to `/app/rf100`. You can also specify the fo
 docker run --rm -it \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v ${PWD}/rf100:/workspace/rf100 \
-    rf100-download -f yolov5
+    roboflow/rf100-download
 ```
+
+If you want to build the container and not use the image on the hub, run
+
+```bash
+docker build -t rf100-download -f Dockerfile.rf100.download .
+```
+
 
 ### Local Env
 
