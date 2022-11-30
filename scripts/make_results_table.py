@@ -7,8 +7,7 @@ This script create the result table in the paper.
 4) print the latex code for the table
 """
 from pathlib import Path
-from textwrap import indent
-from unicodedata import name
+import numpy as np
 
 import pandas as pd
 
@@ -81,9 +80,22 @@ table_style = table_style.format(
         "glip": "{:.3f}",
     }
 )
+
+
+def highlight_max(s: pd.Series):
+    max_idx = np.argmax([s["yolov5"], s["yolov7"], s["glip"]])
+    is_max = [False for _ in range(s.shape[0])]
+    is_max[6 + max_idx] = True
+    return ["font-weight: bold" if cell else "" for cell in is_max]
+
+
+table_style = table_style.apply(highlight_max, axis=1)
 print(
     table_style.to_latex(
-        "table.tex", hrules=True, clines="all;data", position_float="centering"
+        "table.tex",
+        hrules=True,
+        clines="all;data",
+        position_float="centering",
+        convert_css=True,
     )
 )
-#
