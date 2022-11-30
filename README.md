@@ -132,6 +132,7 @@ All results are stored inside `./runs`.
 **Note**, we will map the current folder to the container file system to persist data
 
 ```bash
+mkdir -p runs &&
 nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v /etc/group:/etc/group:ro \
@@ -146,6 +147,7 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 **Note**, we will map the current folder to the container file system to persist data
 
 ```bash
+mkdir -p runs &&
 nvidia-docker run --gpus all --rm -d --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v /etc/group:/etc/group:ro \
@@ -158,6 +160,7 @@ nvidia-docker run --gpus all --rm -d --ipc host --network host --shm-size 64g \
 ### [GLIP](https://github.com/microsoft/GLIP)
 
 ```bash
+mkdir -p runs &&
 nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
     -e ROBOFLOW_API_KEY=$ROBOFLOW_API_KEY \
     -v /etc/group:/etc/group:ro \
