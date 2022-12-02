@@ -1,3 +1,7 @@
+[![Roboflow Blog](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-blogpost.svg)](https://blog.roboflow.com/roboflow-100) 
+[![Roboflow Notebook](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-notebook.svg)](https://github.com/roboflow-ai/notebooks/blob/main/notebooks/how-to-use-rf100.ipynb) 
+[![YouTube](https://badges.aleen42.com/src/youtube.svg)](https://youtu.be/jIgZMr-PBMo)
+
 # Roboflow 100 📸: A Rich, Multi-Domain Object Detection Benchmark
 
 ![rf100blog-mosaicthing](https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg)
