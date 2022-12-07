@@ -13,6 +13,17 @@ datasets.
 
 *RF100 was sponsored with ❤️ by [Intel](https://www.intel.com/content/www/us/en/homepage.html)*
 
+RF100 paper is on [arxiv](https://arxiv.org/abs/2211.13523), if you used RF100 in your research, **please consider citing us**
+
+```
+@misc{2211.13523,
+Author = {Floriana Ciaglia and Francesco Saverio Zuppichini and Paul Guerrie and Mark McQuade and Jacob Solawetz},
+Title = {Roboflow 100: A Rich, Multi-Domain Object Detection Benchmark},
+Year = {2022},
+Eprint = {arXiv:2211.13523},
+}
+```
+
 ## RF100
 
 `RF100` contains the following datasets, carefully chosen from more than 90'000 datasets hosted on our [universe hub](https://universe.roboflow.com/). The datasets are splitted in 7 categories: `Aerial`, `Videogames`, `Microscopic`, `Underwater`, `Documents`, `Electromagnetic` and `Real World`. 
