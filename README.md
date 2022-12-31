@@ -55,7 +55,7 @@ cd roboflow-100-benchmark
 git submodule update --init --recursive
 ```
 
-You will need an API key. `RF100` can be accessed with any key from Roboflow, head over [our doc](https://docs.roboflow.com/rest-api.') to learn how to get one.
+You will need an API key. `RF100` can be accessed with any key from Roboflow, head over [our doc](https://docs.roboflow.com/rest-api) to learn how to get one.
 
 Then, export the key to your current shell
 
