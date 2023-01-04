@@ -67,7 +67,7 @@ soda-bottles,real world,1547,216,486,2249,6.0,0.964,,0.098,1
 truck-movement,real world,740,107,215,1062,7.0,0.786,0.846,0.007,1
 wine-labels,real world,3172,630,841,4643,12.0,0.569,0.632,0.045,1
 digits-t2eg6,real world,2912,367,824,4103,10.0,0.989,0.989,0.003,1
-vehicles-q0x2v,real world,2634,458,966,4058,,0.454,0.464,0.029,1
+vehicles-q0x2v,real world,2634,458,966,4058,12.0,0.454,0.464,0.029,1
 peanuts-sd4kf,real world,268,42,77,387,2.0,0.995,0.997,0.358,1
 printed-circuit-board,real world,548,44,80,672,34.0,0.0907,,0.0,1
 pests-2xlvx,real world,509,55,153,717,28.0,0.136,0.029,0.004,1
