@@ -44,17 +44,21 @@ def make_json_and_image_for_split(
     split_output_dir_images = split_output_dir / "images"
 
     images_ids = range(len(image_paths))
-
-    if not split_output_dir_images.exists():
+    images_ids_to_names = {}
+    # resize images
+    should_store_images = not split_output_dir_images.exists()
+    if should_store_images:
         split_output_dir_images.mkdir(exist_ok=True, parents=True)
         # open all the images
         images: List[Image.Image] = list(
             map(lambda x: Image.open(x).convert("RGB"), image_paths)
         )
-        # resize images
         images: List[Image.Image] = list(map(lambda x: x.resize(size), images))
-        # store them to disk
-        for image_id in images_ids:
+    # store them to disk
+    for i, image_id in enumerate(images_ids):
+        # add image filename to the dict
+        images_ids_to_names[image_id] = Path(image_paths[i]).stem
+        if should_store_images:
             image = images[image_id]
             image.save(
                 split_output_dir_images / f"{str(image_id)}.jpeg",
@@ -78,6 +82,8 @@ def make_json_and_image_for_split(
     with (split_output_dir / f"{points_file_prefix}-points.json").open("w") as f:
         json.dump(points_json, f)
 
+    with (split_output_dir / "images_ids_to_names.json").open("w") as f:
+        json.dump(images_ids_to_names, f)
 
 def get_data_chunks(
     data: dict, chunk_size: int
@@ -152,6 +158,7 @@ if __name__ == "__main__":
     #     # args = parser.parse_args()
 
     #     # input_path, output_dir, k, method = args.i, args.o, args.k, args.method
+    input_path = Path("./reduced-tsne-k=3.pk")
     input_path, output_dir, montage_size, image_size = (
         Path("./reduced-tsne-k=3.pk"),
         Path("./montages"),

@@ -11,6 +11,7 @@ do
     montage_dir=$root/$split_id/
     ls $root/$split_id/images/* | sort -V > $root/$split_id/images_to_montage.txt
     montage `cat $root/$split_id/images_to_montage.txt` -geometry +0+0 -background none -tile 32x $root/$split_id/2048-img-atlas.jpg
+    rm -r $root/$split_id/images/
 done
 
 echo "Done!"
