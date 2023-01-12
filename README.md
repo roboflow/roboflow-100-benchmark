@@ -175,6 +175,11 @@ nvidia-docker run --gpus all --rm -d --ipc host --network host --shm-size 64g \
     rf100-benchmark ./yolov7-benchmark/train.sh
 ```
 
+### [YOLOv8](https://github.com/WongKinYiu/yolov7) Fine-Tuning
+
+**Note**, Doc coming soon but we have the results (was done internally by another team member)
+
+
 
 ### [GLIP](https://github.com/microsoft/GLIP)
 
@@ -189,6 +194,22 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 
 
 ## Appendix
+
+## YOLOs Comparison
+
+**Note** We only train one seed for each model, take these results with a **grain of salt**
+
+The following box plots shows `mAP@.50` for each YOLOs model on RF100
+
+
+<img  width="500px" src="doc/images/comparison-yolos-box.png"/>
+
+The following bar plots shows `mAP@.50` for each YOLOs model on each RF100 category
+
+<img  width="500px" src="doc/images/comparison-yolos-bar.png"/>
+
+
+### Samples
 
 | dataset                                                                                                   | category        | samples                                                   |
 |:----------------------------------------------------------------------------------------------------------|:----------------|:----------------------------------------------------------|
