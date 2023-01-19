@@ -41,6 +41,19 @@ Eprint = {arXiv:2211.13523},
 | **Total**           | **100**      | **224,714** | **805**     |
 
 
+**Note** some datasets failed, only on `88`
+
+| category        |   yolov5 |   yolov7 |   yolov8 |      glip |
+|:----------------|---------:|---------:|---------:|----------:|
+| aerial          | 0.636    | 0.504286 | 0.707286 | 0.0238571 |
+| documents       | 0.716125 | 0.7225   | 0.79775  | 0.018625  |
+| electromagnetic | 0.7423   | 0.639    | 0.7899   | 0.0697    |
+| microscopic     | 0.650727 | 0.59166  | 0.747455 | 0.0230909 |
+| real world      | 0.781659 | 0.705276 | 0.842171 | 0.117049  |
+| underwater      | 0.56     | 0.6624   | 0.7024   | 0.1876    |
+| videogames      | 0.863333 | 0.783167 | 0.881    | 0.1625    |
+| **Total**       | **0.7071**   | **0.6583**   | **0.7811**   | **0.0860**    |
+
 🚨 **Head over the [Appendix](#appendix) at the bottom to see samples from each dataset**
 
 We provide a [notebook to help you using RF100 with PyTorch](/notebooks/roboflow-100-pytorch.ipynb)
@@ -148,6 +161,8 @@ All results are stored inside `./runs`.
 > **Warning**
 > If you have `permission denied` errors, you can either remove `runs` with `sudo rm -rf ./runs` or give permissions to everybody `sudo chmod -R +x ./runs`.
 
+> **Warning**
+> Due to poor code support, random errors and time, we weren't able to run all the models on all datasets. Only 88 datasets were successfully benchmarked on **all** four models
 
 ### [YOLOv5](https://github.com/ultralytics/yolov5) Fine-Tuning
 
@@ -179,9 +194,13 @@ nvidia-docker run --gpus all --rm -d --ipc host --network host --shm-size 64g \
 
 **Note**, Doc coming soon but we have the results (was done internally by another team member)
 
+**Note** The model failed on these datasets: `bone-fracture-7fylg`, `brain-tumor-m2pbp`, `cable-damage`, `circuit-elements` and `printed-circuit-board`
 
 
 ### [GLIP](https://github.com/microsoft/GLIP)
+
+**Note** The model failed on these datasets: `apex-videogame`, `apples-fvpl5`, `hand-gestures-jps7z`, `road-traffic`,
+       `wall-damage`
 
 ```bash
 mkdir -p runs &&
@@ -196,6 +215,8 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 ## Appendix
 
 ## YOLOs Comparison
+
+**Note** 5 datasets failed on `v8`, so the comparison is only on `95`. Check [`v8`](#yolov8-fine-tuning) for more info.
 
 **Note** We only train one seed for each model, take these results with a **grain of salt**
 
