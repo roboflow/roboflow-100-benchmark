@@ -30,8 +30,15 @@ do
     echo "Training on $dataset"
     if [ ! -d "$dataset/results" ] ;
     then
-        python train.py --img 640 --batch 16 --epochs 100 --name $dataset/results --data $dataset/data.yaml  --weights ./yolov5s.pt
+        python train.py --img 640 --batch 16 --epochs 1 --name $dataset/results --data $dataset/data.yaml  --weights ./yolov5s.pt
+        if [ ! -d $dataset/test ]
+        then
+            echo "[ERROR] $dataset don't have a test set"
+            continue
+        fi
+        sed -i "s/valid/test/" $dataset/data.yaml
         python val.py --data $dataset/data.yaml --img 640 --batch 16 --weights $dataset/results/weights/best.pt --name  $dataset --exist-ok --verbose |& tee $dataset/val_eval.txt 
+        sed -i "s/test/valid/" $dataset/data.yaml
         python ../parse_eval.py -i $dataset/val_eval.txt -l $dataset -o $dir/final_eval.txt
     fi
 done
