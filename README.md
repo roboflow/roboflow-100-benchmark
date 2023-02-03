@@ -188,6 +188,10 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 ```
 
 
+> **Note**
+> We create a [notebook](notebooks/zero_shot_analysis.ipynb) to analysis why and where GLIP did bad and good
+
+
 ## Appendix
 
 | dataset                                                                                                   | category        | samples                                                   |
