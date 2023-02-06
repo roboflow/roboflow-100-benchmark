@@ -94,7 +94,7 @@ docker run --rm -it \
     -v ${PWD}/rf100:/workspace/rf100 \
     -v /etc/group:/etc/group:ro \
     -u "$(id -u):$(id -g)" \
-    roboflow/rf100-download
+    roboflow/rf100-download -f yolov5
 ```
 
 If you want to build the container and not use the image on the hub, run
