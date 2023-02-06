@@ -192,6 +192,9 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 > We create a [notebook](notebooks/zero_shot_analysis.ipynb) to analysis why and where GLIP did bad and good
 
 
+### COCO evaluation
+
+If you are interesting in only the **test annotations** for `rf100`, e.g. you are using `pycocotools` to compute `maps`, we [have create a zip file](https://drive.google.com/file/d/1f6A1qh2e7wv8U9uu04mhCizfx8i48EfR/view?usp=sharing) with `root/<dataset_name>/<test_annotations>.json`. We hope this will make it easier for you to evaluate your models. 
 ## Appendix
 
 | dataset                                                                                                   | category        | samples                                                   |
