@@ -15,7 +15,7 @@ google-auth-oauthlib==0.4.6
 grpcio==1.47.0
 idna==2.10
 importlib-metadata==4.12.0
-ipython==8.4.0
+ipython==8.10.0
 jedi==0.18.1
 kiwisolver==1.3.1
 Markdown==3.4.1
