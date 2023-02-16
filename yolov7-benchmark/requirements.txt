@@ -65,6 +65,6 @@ traitlets==5.3.0
 typing-extensions==4.3.0
 urllib3==1.26.6
 wcwidth==0.2.5
-Werkzeug==2.2.1
+Werkzeug==2.2.3
 wget==3.2
 zipp==3.8.1
