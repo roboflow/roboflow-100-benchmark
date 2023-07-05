@@ -12,7 +12,7 @@ fonttools==4.34.4
 glob2==0.7
 google-auth==2.10.0
 google-auth-oauthlib==0.4.6
-grpcio==1.47.0
+grpcio==1.53.0
 idna==2.10
 importlib-metadata==4.12.0
 ipython==8.4.0
