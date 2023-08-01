@@ -2,6 +2,9 @@
 [![Roboflow Notebook](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-notebook.svg)](https://github.com/roboflow-ai/notebooks/blob/main/notebooks/how-to-use-rf100.ipynb) 
 [![YouTube](https://badges.aleen42.com/src/youtube.svg)](https://youtu.be/jIgZMr-PBMo)
 
+> **Note**
+> RF100 is part of the [CVinW challenge](https://computer-vision-in-the-wild.github.io/cvpr-2023/)!
+
 # Roboflow 100 📸: A Rich, Multi-Domain Object Detection Benchmark
 
 ![rf100blog-mosaicthing](https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg)
@@ -107,7 +110,7 @@ docker run --rm -it \
     -v ${PWD}/rf100:/workspace/rf100 \
     -v /etc/group:/etc/group:ro \
     -u "$(id -u):$(id -g)" \
-    roboflow/rf100-download
+    roboflow/rf100-download -f yolov5
 ```
 
 If you want to build the container and not use the image on the hub, run
@@ -212,6 +215,13 @@ nvidia-docker run --gpus all --rm -it --ipc host --network host --shm-size 64g \
 ```
 
 
+> **Note**
+> We create a [notebook](notebooks/zero_shot_analysis.ipynb) to analysis why and where GLIP did bad and good
+
+
+### COCO evaluation
+
+If you are interesting in only the **test annotations** for `rf100`, e.g. you are using `pycocotools` to compute `maps`, we [have create a zip file](https://drive.google.com/file/d/1f6A1qh2e7wv8U9uu04mhCizfx8i48EfR/view?usp=sharing) with `root/<dataset_name>/<test_annotations>.json`. We hope this will make it easier for you to evaluate your models. 
 ## Appendix
 
 ## YOLOs Comparison
