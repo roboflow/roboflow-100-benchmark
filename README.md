@@ -130,11 +130,26 @@ pip install roboflow
 
 Then,
 
+##### give relevant permissions
 ```bash
 chmod 770 ./scripts/download_datasets.sh
+```
+##### You can download the dataset in one of the following options:
+a) download the whole dataset
+```bash
 ./scripts/download_datasets.sh
-./scripts/download_datasets.sh -f yolov5 $ change format
-./scripts/download_datasets.sh -l <path_to_my_location> change download location
+```
+b) download the dataset in either `yolov5`/`yolov7` format or `coco` format:
+```bash
+./scripts/download_datasets.sh -f yolov5 $ change yolov5 to coco for coco format
+```
+c) download the dataset to a specified location using `-l` flag
+```bash
+./scripts/download_datasets.sh -l <your__desired_location>
+```
+For instance: If I want to download the rf100 dataset with `coco` format into my `/mnt/projects/datasets` path, then I will do:
+```bash
+./scripts/download_datasets.sh -f coco -l /mnt/projects/datasets/
 ```
 
 ### Formats
