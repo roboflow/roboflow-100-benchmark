@@ -1,61 +1,113 @@
 #!/bin/bash
-set -euo pipefail
+# set -euo pipefail
 
-dir=$(pwd)/runs/yolo-v11
-echo $dir
-datasets_dir=$dir/rf100
+# Store the current directory
+SCRIPT_DIR="$(pwd)"
 
-if [ ! -d "$datasets_dir" ] ; then
-    "$(pwd)/scripts/download_datasets.sh" -l "$datasets_dir" -f yolov11
+# Set the datasets directory to ./rf100
+datasets_dir="$SCRIPT_DIR/rf100"
+echo "Datasets directory: $datasets_dir"
+
+# Download datasets if not present
+if [ -z "$(ls -A "$datasets_dir")" ]; then
+    echo "Downloading datasets..."
+    chmod +x "$SCRIPT_DIR/scripts/download_datasets.sh"
+    "$SCRIPT_DIR/scripts/download_datasets.sh" -l "$datasets_dir" -f yolov11
 fi
 
-if [ ! -f "$dir/final_eval.txt" ] ; then
+# Prepare the results directory
+dir="$SCRIPT_DIR/runs/yolo-v11"
+mkdir -p "$dir"
+if [ ! -f "$dir/final_eval.txt" ]; then
     touch "$dir/final_eval.txt"
 fi
 
-cd "$(pwd)/yolov11-benchmark/"
+cd "$SCRIPT_DIR/yolov11-benchmark/"
 
 # Install dependencies if needed
-apt-get install -y libfreetype6-dev
-pip install git+https://github.com/ultralytics/ultralytics.git@7a6c76d16c01f3e4ce9ed20eedc6ed27421b3268
-wget https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt
+echo "Installing dependencies..."
+# Comment out apt-get commands if you don't have root permissions
+# sudo apt-get update && sudo apt-get install -y libfreetype6-dev
+
+pip install --user git+https://github.com/ultralytics/ultralytics.git
+echo "Dependencies installed."
+
+# Download the model file
+echo "Downloading model file..."
+wget -nc https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt
+echo "Model file downloaded."
+
+# Set the model path
+model_path="$SCRIPT_DIR/yolov11-benchmark/yolo11s.pt"
+
+# Verify that the model file exists
+if [ ! -f "$model_path" ]; then
+    echo "Model file not found at $model_path. Exiting."
+    exit 1
+fi
 
 # Get list of datasets
 datasets=("$datasets_dir"/*)
 num_datasets=${#datasets[@]}
-num_gpus=8
+echo "Number of datasets found: $num_datasets"
+
+if [ "$num_datasets" -eq 0 ]; then
+    echo "No datasets found in $datasets_dir. Exiting."
+    exit 1
+fi
+
+num_gpus=8  # Number of GPUs
 
 # Function to train on a single dataset
 train_dataset() {
-    local dataset=$1
-    local gpu_id=$2
-    echo "Training on $dataset using GPU $gpu_id"
+    local dataset="$1"
 
-    if [ ! -d "$dataset/results" ] ; then
-        yolo detect train data="$dataset/data.yaml" model=yolov11s.pt epochs=100 batch=-1 device="$gpu_id" project="$dataset" name=train
+    # Find an available GPU using lock files
+    while true; do
+        for ((gpu_id=0; gpu_id<num_gpus; gpu_id++)); do
+            lock_file="/tmp/gpu_lock_$gpu_id"
+            exec {lock_fd}>$lock_file || continue
+            if flock -n "$lock_fd"; then
+                # Acquired lock for this GPU
+                echo "Assigned GPU $gpu_id to dataset $dataset"
+                # Start training
+                dataset_name=$(basename "$dataset")
+                results_dir="$dir/$dataset_name"
 
-        yolo detect val data="$dataset/data.yaml" model="$dataset/train/weights/best.pt" device="$gpu_id" project="$dataset" name=val
-    fi
-}
+                if [ ! -f "$results_dir/train/weights/best.pt" ]; then
+                    yolo detect train data="$dataset/data.yaml" model="$model_path" epochs=100 batch=-1 device="$gpu_id" project="$results_dir" name=train
 
-# Keep track of running jobs
-pids=()
-for ((i=0; i<num_datasets; i++)); do
-    dataset=${datasets[$i]}
-    gpu_id=$((i % num_gpus))
-    train_dataset "$dataset" "$gpu_id" &
-    pids+=($!)
+                    yolo detect val data="$dataset/data.yaml" model="$results_dir/train/weights/best.pt" device="$gpu_id" project="$results_dir" name=val
 
-    # When number of background jobs reaches num_gpus, wait for any to finish
-    if (( ${#pids[@]} >= num_gpus )); then
-        wait -n
-        # Clean up finished jobs from the pids array
-        for pid in "${pids[@]}"; do
-            if ! kill -0 "$pid" 2>/dev/null; then
-                pids=("${pids[@]/$pid/}")
+                    python3 "$SCRIPT_DIR/yolov11-benchmark/parse_eval.py" -d "$dataset_name" -r "$results_dir/train" -o "$dir/final_eval.txt"
+                else
+                    echo "Results for $dataset already exist. Skipping training."
+                fi
+
+                # Release the lock
+                flock -u "$lock_fd"
+                exec {lock_fd}>&-
+                rm -f "$lock_file"
+
+                return 0
+            else
+                # Could not acquire lock; GPU is in use
+                exec {lock_fd}>&-
             fi
         done
-    fi
+        # Wait before trying again
+        sleep 5
+    done
+}
+
+export -f train_dataset
+export model_path
+export dir
+export SCRIPT_DIR
+
+# Start training datasets with parallel execution
+for dataset in "${datasets[@]}"; do
+    train_dataset "$dataset" &
 done
 
 # Wait for all remaining jobs to finish
