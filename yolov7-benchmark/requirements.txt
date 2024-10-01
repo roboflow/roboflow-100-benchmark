@@ -63,7 +63,7 @@ torchvision==0.13.1
 tqdm==4.64.0
 traitlets==5.3.0
 typing-extensions==4.3.0
-urllib3==1.26.6
+urllib3==1.26.18
 wcwidth==0.2.5
 Werkzeug==3.0.1
 wget==3.2
