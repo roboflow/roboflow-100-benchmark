@@ -56,44 +56,47 @@ if [ "$num_datasets" -eq 0 ]; then
     exit 1
 fi
 
-num_gpus=8  # Number of GPUs
+num_gpus=8          # Number of GPUs
+max_jobs_per_gpu=4  # Number of jobs per GPU
 
 # Function to train on a single dataset
 train_dataset() {
     local dataset="$1"
 
-    # Find an available GPU using lock files
+    # Find an available GPU and slot using lock files
     while true; do
         for ((gpu_id=0; gpu_id<num_gpus; gpu_id++)); do
-            lock_file="/tmp/gpu_lock_$gpu_id"
-            exec {lock_fd}>$lock_file || continue
-            if flock -n "$lock_fd"; then
-                # Acquired lock for this GPU
-                echo "Assigned GPU $gpu_id to dataset $dataset"
-                # Start training
-                dataset_name=$(basename "$dataset")
-                results_dir="$dir/$dataset_name"
+            for ((slot_id=0; slot_id<max_jobs_per_gpu; slot_id++)); do
+                lock_file="/tmp/gpu_lock_${gpu_id}_${slot_id}"
+                exec {lock_fd}>$lock_file || continue
+                if flock -n "$lock_fd"; then
+                    # Acquired lock for this GPU and slot
+                    echo "Assigned GPU $gpu_id (slot $slot_id) to dataset $dataset"
+                    # Start training
+                    dataset_name=$(basename "$dataset")
+                    results_dir="$dir/$dataset_name"
 
-                if [ ! -f "$results_dir/train/weights/best.pt" ]; then
-                    yolo detect train data="$dataset/data.yaml" model="$model_path" epochs=100 batch=-1 device="$gpu_id" project="$results_dir" name=train
+                    if [ ! -f "$results_dir/train/weights/best.pt" ]; then
+                        yolo detect train data="$dataset/data.yaml" model="$model_path" epochs=100 batch=16 device="$gpu_id" project="$results_dir" name=train
 
-                    yolo detect val data="$dataset/data.yaml" model="$results_dir/train/weights/best.pt" device="$gpu_id" project="$results_dir" name=val
+                        yolo detect val data="$dataset/data.yaml" model="$results_dir/train/weights/best.pt" device="$gpu_id" project="$results_dir" name=val
 
-                    python3 "$SCRIPT_DIR/yolov11-benchmark/parse_eval.py" -d "$dataset_name" -r "$results_dir/train" -o "$dir/final_eval.txt"
+                        python3 "$SCRIPT_DIR/yolov11-benchmark/parse_eval.py" -d "$dataset_name" -r "$results_dir/train" -o "$dir/final_eval.txt"
+                    else
+                        echo "Results for $dataset already exist. Skipping training."
+                    fi
+
+                    # Release the lock
+                    flock -u "$lock_fd"
+                    exec {lock_fd}>&-
+                    rm -f "$lock_file"
+
+                    return 0
                 else
-                    echo "Results for $dataset already exist. Skipping training."
+                    # Could not acquire lock; slot is in use
+                    exec {lock_fd}>&-
                 fi
-
-                # Release the lock
-                flock -u "$lock_fd"
-                exec {lock_fd}>&-
-                rm -f "$lock_file"
-
-                return 0
-            else
-                # Could not acquire lock; GPU is in use
-                exec {lock_fd}>&-
-            fi
+            done
         done
         # Wait before trying again
         sleep 5
@@ -104,6 +107,8 @@ export -f train_dataset
 export model_path
 export dir
 export SCRIPT_DIR
+export max_jobs_per_gpu
+export num_gpus
 
 # Start training datasets with parallel execution
 for dataset in "${datasets[@]}"; do
