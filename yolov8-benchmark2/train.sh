@@ -22,7 +22,7 @@ if [ ! -f "$dir/final_eval.txt" ]; then
     touch "$dir/final_eval.txt"
 fi
 
-cd "$SCRIPT_DIR/yolov8-benchmark/"
+cd "$SCRIPT_DIR/yolov8-benchmark2/"
 
 # Install dependencies if needed
 echo "Installing dependencies..."
@@ -38,7 +38,7 @@ wget -nc https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8s.
 echo "Model file downloaded."
 
 # Set the model path
-model_path="$SCRIPT_DIR/yolov8-benchmark/yolov8s.pt"
+model_path="$SCRIPT_DIR/yolov8-benchmark2/yolov8s.pt"
 
 # Verify that the model file exists
 if [ ! -f "$model_path" ]; then
@@ -81,7 +81,7 @@ train_dataset() {
 
                         yolo detect val data="$dataset/data.yaml" model="$results_dir/train/weights/best.pt" device="$gpu_id" project="$results_dir" name=val
 
-                        python3 "$SCRIPT_DIR/yolov8-benchmark/parse_eval.py" -d "$dataset_name" -r "$results_dir/train" -o "$dir/final_eval.txt"
+                        python3 "$SCRIPT_DIR/yolov8-benchmark2/parse_eval.py" -d "$dataset_name" -r "$results_dir/train" -o "$dir/final_eval.txt"
                     else
                         echo "Results for $dataset already exist. Skipping training."
                     fi
